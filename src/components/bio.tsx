@@ -9,7 +9,7 @@ import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 
-const Bio = () => {
+function Bio() {
   const data = useStaticQuery(graphql`
     query BioQuery {
       site {
@@ -35,8 +35,8 @@ const Bio = () => {
       <StaticImage
         className="bio-avatar"
         layout="fixed"
-        formats={["AUTO", "WEBP", "AVIF"]}
-        src="../images/profile-pic.png"
+        formats={["auto", "webp", "avif"]}
+        src="../images/profile-pic.jpg"
         width={50}
         height={50}
         quality={95}
@@ -47,7 +47,7 @@ const Bio = () => {
           Written by <strong>{author.name}</strong> {author?.summary || null}
           {` `}
           <a href={`https://twitter.com/${social?.twitter || ``}`}>
-            You should follow them on Twitter
+            You can follow him on Twitter
           </a>
         </p>
       )}

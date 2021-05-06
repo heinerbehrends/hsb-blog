@@ -1,13 +1,13 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
-
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import QuasiHero from "../images/svg/quasicrystals-color.svg"
 
-const BlogIndex = ({ data, location }) => {
+function Home({ data, location }) {
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  const posts = data.allMarkdownRemark.nodes
+  const posts = data.allMdx.nodes
 
   if (posts.length === 0) {
     return (
@@ -26,6 +26,7 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <Seo title="All posts" />
+      <QuasiHero />
       <Bio />
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
@@ -63,7 +64,7 @@ const BlogIndex = ({ data, location }) => {
   )
 }
 
-export default BlogIndex
+export default Home
 
 export const pageQuery = graphql`
   query {
@@ -72,7 +73,7 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
       nodes {
         excerpt
         fields {
