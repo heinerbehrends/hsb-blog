@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `Heiner's (mostly) Front-end Development Blog`,
+    title: `(Mostly) Front End`,
     author: {
       name: `Heiner Behrends`,
-      summary: `who loves learning and teaching about code. `,
+      summary: `I share what I learn on my journey to become a better developer`,
     },
     description: `I share stuff that I learn on my journey to become a better developer`,
     siteUrl: `https://heinerbehrends.eu/`,

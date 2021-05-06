@@ -3,7 +3,6 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import QuasiHero from "../images/svg/quasicrystals-color.svg"
 
 function Home({ data, location }) {
   const siteTitle = data.site.siteMetadata?.title || `Title`
@@ -26,7 +25,50 @@ function Home({ data, location }) {
   return (
     <Layout location={location} title={siteTitle}>
       <Seo title="All posts" />
-      <QuasiHero />
+      <header
+        style={{
+          display: "grid",
+          alignItems: "center",
+          height: "400px",
+          width: "calc(100vw - 8px)",
+          position: "relative",
+          left: "50%",
+          right: "50%",
+          marginLeft: "-50vw",
+          marginRight: "-50vw",
+          marginTop: "-48px",
+          backgroundImage: "url(/quasicrystals-color.svg)",
+          backgroundClip: "text",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
+        }}
+      >
+        <h1
+          className="main-heading"
+          style={{
+            gridArea: "1/1",
+            textAlign: "center",
+            fontSize: "4.5rem",
+            zIndex: 1,
+          }}
+        >
+          <Link to="/">{siteTitle}</Link>
+        </h1>
+        <div
+          style={{
+            width: "calc(100vw - 8px)",
+            position: "relative",
+            left: "50%",
+            right: "50%",
+            marginLeft: "-50vw",
+            marginRight: "-50vw",
+            gridArea: "1/1",
+          }}
+        >
+          {/* <QuasiHero /> */}
+        </div>
+      </header>
       <Bio />
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {

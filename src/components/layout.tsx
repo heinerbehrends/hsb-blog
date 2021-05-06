@@ -2,16 +2,13 @@ import * as React from "react"
 import { Link } from "gatsby"
 
 function Layout({ location, title, children }) {
+  //@ts-expect-error
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   let header
 
   if (isRootPath) {
-    header = (
-      <h1 className="main-heading">
-        <Link to="/">{title}</Link>
-      </h1>
-    )
+    header = null
   } else {
     header = (
       <Link className="header-link-home" to="/">
@@ -25,9 +22,9 @@ function Layout({ location, title, children }) {
       <header className="global-header">{header}</header>
       <main>{children}</main>
       <footer>
-        © {new Date().getFullYear()}, Built with
+        © {new Date().getFullYear()}, Built by
         {` `}
-        <a href="https://www.gatsbyjs.com">Gatsby</a>
+        <a href="https://www.flyfi.nl">flyfi</a>
       </footer>
     </div>
   )
