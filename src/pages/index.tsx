@@ -3,9 +3,15 @@ import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import { HomeQuery } from "../../graphql-types"
 
-function Home({ data, location }) {
-  const siteTitle = data.site.siteMetadata?.title || `Title`
+type HomeProps = {
+  data: HomeQuery
+  location: Location
+}
+
+function Home({ data, location }: HomeProps) {
+  const siteTitle = data.site?.siteMetadata?.title || `Title`
   const posts = data.allMdx.nodes
 
   if (posts.length === 0) {
@@ -29,7 +35,7 @@ function Home({ data, location }) {
         style={{
           display: "grid",
           alignItems: "center",
-          height: "400px",
+          height: "66vh",
           width: "calc(100vw - 8px)",
           position: "relative",
           left: "50%",
@@ -72,10 +78,10 @@ function Home({ data, location }) {
       <Bio />
       <ol style={{ listStyle: `none` }}>
         {posts.map(post => {
-          const title = post.frontmatter.title || post.fields.slug
+          const title = post?.frontmatter?.title || post?.fields?.slug
 
           return (
-            <li key={post.fields.slug}>
+            <li key={post?.fields?.slug}>
               <article
                 className="post-list-item"
                 itemScope
@@ -83,16 +89,16 @@ function Home({ data, location }) {
               >
                 <header>
                   <h2>
-                    <Link to={post.fields.slug} itemProp="url">
+                    <Link to={post.fields?.slug as string} itemProp="url">
                       <span itemProp="headline">{title}</span>
                     </Link>
                   </h2>
-                  <small>{post.frontmatter.date}</small>
+                  <small>{post?.frontmatter?.date}</small>
                 </header>
                 <section>
                   <p
                     dangerouslySetInnerHTML={{
-                      __html: post.frontmatter.description || post.excerpt,
+                      __html: post?.frontmatter?.description || post.excerpt,
                     }}
                     itemProp="description"
                   />
@@ -109,7 +115,7 @@ function Home({ data, location }) {
 export default Home
 
 export const pageQuery = graphql`
-  query {
+  query Home {
     site {
       siteMetadata {
         title
