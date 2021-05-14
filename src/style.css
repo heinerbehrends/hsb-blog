@@ -84,6 +84,7 @@ body {
 }
 
 footer {
+  font-family: var(--fontFamily-sans);
   padding: var(--spacing-6) var(--spacing-0);
 }
 
@@ -288,6 +289,7 @@ a:focus {
 
 .bio {
   display: flex;
+  align-items: center;
   margin-bottom: var(--spacing-16);
 }
 
