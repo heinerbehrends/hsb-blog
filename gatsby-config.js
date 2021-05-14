@@ -1,9 +1,10 @@
 module.exports = {
   siteMetadata: {
-    title: `(Mostly) Front End`,
+    title: `Rise of the Front End`,
     author: {
       name: `Heiner Behrends`,
-      summary: `I share what I learn on my journey to become a better developer`,
+      summary: `I share stuff that I learn on my journey to become a better developer. 
+      A blog with focus on front-end development, JAM-stack, serverless and UI/UX.`,
     },
     description: `I share stuff that I learn on my journey to become a better developer`,
     siteUrl: `https://heinerbehrends.eu/`,
@@ -12,11 +13,12 @@ module.exports = {
     },
   },
   plugins: [
+    `gatsby-plugin-graphql-codegen`,
     {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          include: /svg/, // See below to configure properly
+          include: /svg/,
         },
       },
     },
