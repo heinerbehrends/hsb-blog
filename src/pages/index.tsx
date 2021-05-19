@@ -1,9 +1,11 @@
 import * as React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { HomeQuery } from "../../graphql-types"
+import Header from "../components/header"
+import PostsPreview from "../components/postsPreview"
 
 type HomeProps = {
   data: HomeQuery
@@ -31,83 +33,9 @@ function Home({ data, location }: HomeProps) {
   return (
     <Layout location={location} title={siteTitle}>
       <Seo title="All posts" />
-      <header
-        style={{
-          display: "grid",
-          alignItems: "center",
-          height: "66vh",
-          width: "calc(100vw - 8px)",
-          position: "relative",
-          left: "50%",
-          right: "50%",
-          marginLeft: "-50vw",
-          marginRight: "-50vw",
-          marginTop: "-48px",
-          backgroundImage: "url(/quasicrystals-color-reversed.svg)",
-          backgroundClip: "text",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-          backgroundSize: "cover",
-        }}
-      >
-        <h1
-          className="main-heading"
-          style={{
-            gridArea: "1/1",
-            textAlign: "center",
-            fontSize: "4.5rem",
-            zIndex: 1,
-          }}
-        >
-          <Link to="/">{siteTitle}</Link>
-        </h1>
-        <div
-          style={{
-            width: "calc(100vw - 8px)",
-            position: "relative",
-            left: "50%",
-            right: "50%",
-            marginLeft: "-50vw",
-            marginRight: "-50vw",
-            gridArea: "1/1",
-          }}
-        >
-          {/* <QuasiHero /> */}
-        </div>
-      </header>
+      <Header siteTitle={siteTitle} />
       <Bio />
-      <ol style={{ listStyle: `none` }}>
-        {posts.map(post => {
-          const title = post?.frontmatter?.title || post?.fields?.slug
-
-          return (
-            <li key={post?.fields?.slug}>
-              <article
-                className="post-list-item"
-                itemScope
-                itemType="http://schema.org/Article"
-              >
-                <header>
-                  <h2>
-                    <Link to={post.fields?.slug as string} itemProp="url">
-                      <span itemProp="headline">{title}</span>
-                    </Link>
-                  </h2>
-                  <small>{post?.frontmatter?.date}</small>
-                </header>
-                <section>
-                  <p
-                    dangerouslySetInnerHTML={{
-                      __html: post?.frontmatter?.description || post.excerpt,
-                    }}
-                    itemProp="description"
-                  />
-                </section>
-              </article>
-            </li>
-          )
-        })}
-      </ol>
+      <PostsPreview posts={posts} />
     </Layout>
   )
 }
