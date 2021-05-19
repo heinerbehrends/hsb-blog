@@ -9,10 +9,10 @@ type MetaArray = React.DetailedHTMLProps<
 >[]
 
 type SeoProps = {
-  description: string
-  lang: string
-  title: string
-  meta: MetaArray
+  description?: string
+  lang?: string
+  title?: string
+  meta?: MetaArray
 }
 
 const Seo = ({
