@@ -43,7 +43,7 @@ function Home({ data, location }: HomeProps) {
           marginLeft: "-50vw",
           marginRight: "-50vw",
           marginTop: "-48px",
-          backgroundImage: "url(/quasicrystals-color.svg)",
+          backgroundImage: "url(/quasicrystals-color-reversed.svg)",
           backgroundClip: "text",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
