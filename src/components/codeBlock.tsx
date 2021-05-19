@@ -1,6 +1,6 @@
 import React from "react"
-import Highlight, { defaultProps } from "prism-react-renderer"
-import theme from "prism-react-renderer/themes/atomOneDark/"
+import Highlight, { defaultProps, PrismTheme } from "prism-react-renderer"
+import theme from "../atomOneDark"
 
 export const exampleCode = `
 import React, { useState } from "react";
@@ -23,7 +23,7 @@ export default function CodeBlock({ code }: { code: string }) {
   return (
     <Highlight
       {...defaultProps}
-      theme={theme}
+      theme={theme as PrismTheme}
       code={exampleCode}
       language="jsx"
     >
