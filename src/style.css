@@ -197,6 +197,13 @@ li > ul {
   margin-top: calc(var(--spacing-8) / 2);
 }
 
+pre {
+  font-family: "Fira Code";
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+}
+
 blockquote {
   color: var(--color-text-light);
   margin-left: calc(-1 * var(--spacing-6));
