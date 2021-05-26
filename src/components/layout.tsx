@@ -1,5 +1,6 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import { globalHeader } from "../styles.css"
 
 type LayoutProps = {
   location: Location
@@ -25,13 +26,15 @@ function Layout({ location, title, children }: LayoutProps) {
 
   return (
     <div className="global-wrapper" data-is-root-path={isRootPath}>
-      <header className="global-header">{header}</header>
-      <main>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}, Built by
-        {` `}
-        <a href="https://www.flyfi.nl">flyfi</a>
-      </footer>
+      <main>
+        <header className={globalHeader}>{header}</header>
+        {children}
+        <footer>
+          © {new Date().getFullYear()}, Built with love by
+          {` `}
+          <a href="https://www.flyfi.nl">flyfi</a>
+        </footer>
+      </main>
     </div>
   )
 }

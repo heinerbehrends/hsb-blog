@@ -3,8 +3,8 @@ module.exports = {
     title: `Rise of the Front End`,
     author: {
       name: `Heiner Behrends`,
-      summary: `I share stuff that I learn on my journey to become a better developer. 
-      A blog with focus on front-end development, JAM-stack, serverless and UI/UX.`,
+      summary: `This is a place for me to share stuff that I learn on my journey to become a better developer. 
+      A blog with a focus on front-end development, JAM-stack, serverless and UI/UX.`,
     },
     description: `I share stuff that I learn on my journey to become a better developer`,
     siteUrl: `https://heinerbehrends.eu/`,
@@ -13,7 +13,20 @@ module.exports = {
     },
   },
   plugins: [
-    `gatsby-plugin-graphql-codegen`,
+    // {
+    //   resolve: `gatsby-plugin-manifest`,
+    //   options: {
+    //     name: `heinerbehrends.eu`,
+    //     short_name: `heinerbehrends.eu`,
+    //     start_url: `/`,
+    //     background_color: `#fff`,
+    //     theme_color: `#ff420c`,
+    //     display: `standalone`,
+    //     icon: `src/images/quasicrystals-icon.png`,
+    //   },
+    // },
+    // `gatsby-plugin-graphql-codegen`,
+    `gatsby-plugin-vanilla-extract`,
     {
       resolve: "gatsby-plugin-react-svg",
       options: {

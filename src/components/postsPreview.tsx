@@ -3,7 +3,7 @@ import React from "react"
 import { Mdx, Maybe, MdxFields, MdxFrontmatter } from "../../graphql-types"
 
 type Posts = (Pick<Mdx, "excerpt"> & {
-  fields?: Maybe<Pick<MdxFields, "slug">> | undefined
+  fields?: Maybe<Pick<MdxFields, "slug">>
   frontmatter?:
     | Maybe<Pick<MdxFrontmatter, "date" | "title" | "description">>
     | undefined

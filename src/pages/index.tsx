@@ -31,12 +31,14 @@ function Home({ data, location }: HomeProps) {
   }
 
   return (
-    <Layout location={location} title={siteTitle}>
-      <Seo title="All posts" />
+    <>
       <Header siteTitle={siteTitle} />
-      <Bio />
-      <PostsPreview posts={posts} />
-    </Layout>
+      <Layout location={location} title={siteTitle}>
+        <Seo title="All posts" />
+        <Bio />
+        <PostsPreview posts={posts} />
+      </Layout>
+    </>
   )
 }
 

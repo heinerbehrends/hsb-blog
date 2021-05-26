@@ -1,37 +1,23 @@
 import { Link } from "gatsby"
 import React from "react"
+import { titleHeading } from "../styles.css"
 
-export default function Header({ siteTitle }: { siteTitle: string }) {
+type HeaderProps = { siteTitle: string }
+
+export default function Header({ siteTitle }: HeaderProps) {
   return (
     <header
       style={{
         display: "grid",
         alignItems: "center",
-        height: "66vh",
-        width: "calc(100vw - 8px)",
-        position: "relative",
-        left: "50%",
-        right: "50%",
-        marginLeft: "-50vw",
-        marginRight: "-50vw",
-        marginTop: "-48px",
+        height: "60vh",
         backgroundImage: "url(/quasicrystals-color-reversed.svg)",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
         backgroundSize: "cover",
       }}
     >
-      <h1
-        className="main-heading"
-        style={{
-          gridArea: "1/1",
-          textAlign: "center",
-          fontSize: "4.5rem",
-          zIndex: 1,
-        }}
-      >
-        <Link to="/">{siteTitle}</Link>
-      </h1>
+      <h1 className={titleHeading}>{siteTitle}</h1>
     </header>
   )
 }
