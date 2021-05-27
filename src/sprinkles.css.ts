@@ -81,7 +81,6 @@ const colorStyles = createAtomicStyles({
 
 const weights = {
   body: 400,
-  thin: 300,
   bold: 700,
   black: 900,
 }

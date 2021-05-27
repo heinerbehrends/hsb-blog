@@ -13,12 +13,15 @@ export const titleHeading = composeStyles(
   })
 )
 
-export const globalHeader = atoms({
-  fontSize: "large",
-  paddingTop: "l",
-  paddingRight: "xxl",
-  fontWeight: "black",
-})
+export const globalHeader = composeStyles(
+  // style({ position: "fixed" }),
+  atoms({
+    fontSize: "large",
+    paddingTop: "l",
+    paddingRight: "xxl",
+    fontWeight: "black",
+  })
+)
 
 export const headerHome = style({
   display: "grid",
