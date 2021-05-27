@@ -17,11 +17,7 @@ function Layout({ location, title, children }: LayoutProps) {
   if (isRootPath) {
     header = null
   } else {
-    header = (
-      <Link className="header-link-home" to="/">
-        {title}
-      </Link>
-    )
+    header = <Link to="/">{title}</Link>
   }
 
   return (

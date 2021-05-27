@@ -39,11 +39,7 @@ function BlogIndex({ data, location }: BlogIndexProps) {
 
           return (
             <li key={post.fields?.slug}>
-              <article
-                className="post-list-item"
-                itemScope
-                itemType="http://schema.org/Article"
-              >
+              <article itemScope itemType="http://schema.org/Article">
                 <header>
                   <h2>
                     <Link to={post.fields?.slug as string} itemProp="url">

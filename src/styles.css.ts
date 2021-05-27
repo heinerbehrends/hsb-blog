@@ -15,8 +15,19 @@ export const titleHeading = composeStyles(
 
 export const globalHeader = atoms({
   fontSize: "large",
-  marginTop: "l",
+  paddingTop: "l",
+  paddingRight: "xxl",
   fontWeight: "black",
+})
+
+export const headerHome = style({
+  display: "grid",
+  alignItems: "center",
+  height: "60vh",
+  backgroundImage: "url(/quasicrystals-color-reversed.svg)",
+  backgroundRepeat: "no-repeat",
+  backgroundPosition: "center",
+  backgroundSize: "cover",
 })
 
 export const bio = atoms({
@@ -31,7 +42,7 @@ export const bioImage = composeStyles(
     paddingRight: "xl",
   }),
   style({
-    width: "50px",
-    borderRadius: "100px",
+    width: "75px",
+    borderRadius: "100%",
   })
 )
