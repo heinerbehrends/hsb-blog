@@ -10,7 +10,6 @@
   "dependencies": {
     "@fontsource/fira-code": "^4.3.0",
     "@fontsource/firago": "^4.2.4",
-    "@fontsource/noto-serif": "^4.2.2",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "@types/react": "^17.0.5",
@@ -32,7 +31,6 @@
     "gatsby-plugin-vanilla-extract": "^1.0.4",
     "gatsby-remark-copy-linked-files": "^3.2.0",
     "gatsby-remark-images": "^4.2.0",
-    "gatsby-remark-prismjs": "^4.2.0",
     "gatsby-remark-responsive-iframe": "^3.2.0",
     "gatsby-remark-smartypants": "^3.2.0",
     "gatsby-source-filesystem": "^3.4.0",
