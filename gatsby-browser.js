@@ -1,10 +1,10 @@
 // custom typefaces
-import "@fontsource/firago"
+import "@fontsource/firago/400.css"
+import "@fontsource/firago/700.css"
+import "@fontsource/firago/900.css"
+
 import "@fontsource/fira-code"
-import "@fontsource/noto-serif/400.css"
 // normalize CSS across browsers
 import "./src/normalize.css"
-// custom CSS styles
+// global CSS styles
 import "./src/global.css"
-// Highlighting for code blocks
-// import "prismjs/themes/prism.css"
