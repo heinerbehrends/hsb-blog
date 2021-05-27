@@ -1,45 +1,32 @@
 import React from "react"
-import Highlight, { defaultProps, PrismTheme } from "prism-react-renderer"
+import Highlight, {
+  defaultProps,
+  Language,
+  PrismTheme,
+} from "prism-react-renderer"
 import theme from "../atomOneDark"
 
-export const exampleCode = `
-import React, { useState } from "react";
-
-function Example() {
-
-  const [count, setCount] = useState(0);
-
-  return (
-    <div>
-      <p>You clicked {count} times</p>
-      <button onClick={
-        () => setCount(count + 1)}>
-        Click me
-      </button>
-    </div>
-  );
+type CodeBlockProps = {
+  children: string
+  className: `language-${Language}`
 }
-`.trim()
 
-export default function CodeBlock({ code }: { code: string }) {
+function CodeBlock({ children, className }: CodeBlockProps) {
+  const language = className.replace(/language-/, "")
+
   return (
     <Highlight
       {...defaultProps}
+      code={children}
+      language={language as Language}
       theme={theme as PrismTheme}
-      code={code}
-      language="jsx"
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <pre
-          className={className}
-          style={{
-            ...style,
-          }}
-        >
+        <pre className={className} style={{ ...style, padding: "20px" }}>
           {tokens.map((line, i) => (
-            <div {...getLineProps({ line, key: i })}>
+            <div key={i} {...getLineProps({ line, key: i })}>
               {line.map((token, key) => (
-                <span {...getTokenProps({ token, key })} />
+                <span key={key} {...getTokenProps({ token, key })} />
               ))}
             </div>
           ))}
@@ -48,3 +35,5 @@ export default function CodeBlock({ code }: { code: string }) {
     </Highlight>
   )
 }
+
+export default CodeBlock

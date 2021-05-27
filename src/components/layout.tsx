@@ -1,6 +1,9 @@
 import * as React from "react"
 import { Link } from "gatsby"
 import { globalHeader } from "../styles.css"
+// @ts-ignore
+import { MDXProvider } from "@mdx-js/react"
+import CodeBlock from "./codeBlock"
 
 type LayoutProps = {
   location: Location
@@ -20,18 +23,24 @@ function Layout({ location, title, children }: LayoutProps) {
     header = <Link to="/">{title}</Link>
   }
 
+  const components = {
+    code: CodeBlock,
+  }
+
   return (
-    <div className="global-wrapper" data-is-root-path={isRootPath}>
-      <main>
-        <header className={globalHeader}>{header}</header>
-        {children}
-        <footer>
-          © {new Date().getFullYear()}, Built with love by
-          {` `}
-          <a href="https://www.flyfi.nl">flyfi</a>
-        </footer>
-      </main>
-    </div>
+    <MDXProvider components={components}>
+      <div className="global-wrapper" data-is-root-path={isRootPath}>
+        <main>
+          <header className={globalHeader}>{header}</header>
+          {children}
+          <footer>
+            © {new Date().getFullYear()}, Built with love by
+            {` `}
+            <a href="https://www.flyfi.nl">flyfi</a>
+          </footer>
+        </main>
+      </div>
+    </MDXProvider>
   )
 }
 
