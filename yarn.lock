@@ -1292,11 +1292,6 @@
   resolved "https://registry.yarnpkg.com/@fontsource/firago/-/firago-4.2.4.tgz#9f717aea94c9b6b2ed44de0ec356c06527585930"
   integrity sha512-HAfxoj4435OeMZmEw4FUHSS27nE/W778wDB9aIFZMgszpVNIeSBhHa1U6IbDRpNrDwaXj4mTj1hxqjiziSZICA==
 
-"@fontsource/noto-serif@^4.2.2":
-  version "4.2.2"
-  resolved "https://registry.yarnpkg.com/@fontsource/noto-serif/-/noto-serif-4.2.2.tgz#727a35de76e9f0eee77c8c8cfd81279d743965a7"
-  integrity sha512-OwSHyUFLye3NfYyn2v9Ziq+s68n6nak/ul3Zb7AdDNjJuLgOwBACvklE6Rxj2bu768EcXSyRY623D/spy16T/Q==
-
 "@gatsbyjs/reach-router@^1.3.6":
   version "1.3.6"
   resolved "https://registry.yarnpkg.com/@gatsbyjs/reach-router/-/reach-router-1.3.6.tgz#4e8225836959be247890b66f21a3198a0589e34d"
@@ -7196,15 +7191,6 @@ gatsby-remark-images@^4.2.0:
     unist-util-select "^1.5.0"
     unist-util-visit-parents "^2.1.2"
 
-gatsby-remark-prismjs@^4.2.0:
-  version "4.2.0"
-  resolved "https://registry.yarnpkg.com/gatsby-remark-prismjs/-/gatsby-remark-prismjs-4.2.0.tgz#3a40a0246673d20fdab99b097c8ebf193c86ced2"
-  integrity sha512-PTE4p/f+XosSt/VdHJr9U3ruZ3yhqtUpqDuifsVbOOsS6AyvmEY/7WPUThRC+nSVfueG1geVgxrWB0AoaUPKXQ==
-  dependencies:
-    "@babel/runtime" "^7.12.5"
-    parse-numeric-range "^0.0.2"
-    unist-util-visit "^1.4.1"
-
 gatsby-remark-responsive-iframe@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/gatsby-remark-responsive-iframe/-/gatsby-remark-responsive-iframe-3.2.0.tgz#1f9f74f4c43b8b3e77059c591528bce84d8d50c8"
@@ -11160,11 +11146,6 @@ parse-latin@^4.0.0:
     nlcst-to-string "^2.0.0"
     unist-util-modify-children "^2.0.0"
     unist-util-visit-children "^1.0.0"
-
-parse-numeric-range@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/parse-numeric-range/-/parse-numeric-range-0.0.2.tgz#b4f09d413c7adbcd987f6e9233c7b4b210c938e4"
-  integrity sha1-tPCdQTx6282Yf26SM8e0shDJOOQ=
 
 parse-path@^4.0.0:
   version "4.0.3"
