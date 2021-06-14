@@ -5,5 +5,5 @@
     command = "gatsby develop"
 [[redirects]]
   from = "/concentration"
-  status = "200"
   to = "https://giphy-concentration-next.vercel.app/"
+  status = 200
