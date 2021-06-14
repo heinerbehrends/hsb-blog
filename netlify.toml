@@ -1,0 +1,9 @@
+[build]
+    command = "gatsby build"
+    publish = "public"
+[dev]
+    command = "gatsby develop"
+[[redirects]]
+  from = "/concentration"
+  status = "200"
+  to = "https://giphy-concentration-next.vercel.app/"
