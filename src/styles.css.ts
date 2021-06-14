@@ -14,7 +14,6 @@ export const titleHeading = composeStyles(
 )
 
 export const globalHeader = composeStyles(
-  // style({ position: "fixed" }),
   atoms({
     fontSize: "large",
     paddingTop: "l",
@@ -36,7 +35,6 @@ export const headerHome = style({
 export const bio = atoms({
   display: "flex",
   flexDirection: "row",
-  justifyContent: "space-between",
   alignItems: "center",
 })
 
@@ -49,3 +47,29 @@ export const bioImage = composeStyles(
     borderRadius: "100%",
   })
 )
+
+export const main = composeStyles(
+  atoms({
+    lineHeight: "body",
+    color: "text",
+    fontSize: "body",
+    marginX: "auto",
+    marginY: "none",
+    padding: {
+      mobile: "l",
+      tablet: "xxl",
+    },
+  }),
+  style({
+    maxWidth: "720px",
+    fontFamily: "Fira Sans",
+  })
+)
+
+export const footer = atoms({
+  marginY: "xxl",
+})
+
+export const codeBlock = atoms({
+  fontSize: "body",
+})

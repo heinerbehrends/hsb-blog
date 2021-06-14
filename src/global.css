@@ -1,6 +1,6 @@
 :root {
   font-family: "Fira Sans";
-  line-height: 1.6;
+  line-height: 1.66;
   --text-color: #333;
 }
 
@@ -12,7 +12,7 @@ h5,
 h6 {
   margin-bottom: 0;
   margin-top: 32px;
-  line-height: 1.125;
+  line-height: 1;
   color: var(--text-color);
 }
 
@@ -34,21 +34,12 @@ ol {
   padding: 0;
 }
 
-main {
-  max-width: 720px;
-  margin: 0 auto;
-}
-
-footer {
-  margin: 48px 0 48px 0;
-}
-
 pre {
   font-family: Fira Code;
-  padding: 32px;
-  text-shadow: none;
+  font-size: 16px;
   border-radius: 16px;
-  background: hsla(0, 0%, 0%, 1);
+  overflow-wrap: normal;
+  overflow: auto;
 }
 
 hr {

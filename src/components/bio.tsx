@@ -25,30 +25,35 @@ function Bio() {
   const social = data.site?.siteMetadata?.social
 
   return (
-    <div className={bio}>
-      <div className={bioImage}>
-        <StaticImage
-          imgStyle={{ borderRadius: "50px" }}
-          layout="fixed"
-          formats={["auto", "webp", "avif"]}
-          src="../images/profile-pic.jpg"
-          width={75}
-          height={75}
-          quality={95}
-          alt="Profile picture"
-        />
-      </div>
-      {author?.name && (
+    <>
+      <div className={bio}>
+        <div className={bioImage}>
+          <StaticImage
+            style={{ borderRadius: "50px" }}
+            imgStyle={{ borderRadius: "50px" }}
+            layout="fixed"
+            formats={["auto", "webp", "avif"]}
+            src="../images/profile-pic.jpg"
+            width={75}
+            height={75}
+            quality={95}
+            alt="Profile picture"
+          />
+        </div>
+
         <p>
-          Written by <strong>{author.name}</strong>. <br />{" "}
-          {author?.summary || null}
-          <br />
-          <a href={`https://twitter.com/${social?.twitter || ``}`}>
-            You can follow me on Twitter
-          </a>
+          Written by <strong>{author?.name}</strong>. <br />{" "}
         </p>
-      )}
-    </div>
+      </div>
+      <p>
+        {author?.summary || null}
+
+        <a href={`https://twitter.com/ ${social?.twitter || ``}`}>
+          {" "}
+          You can follow me on Twitter
+        </a>
+      </p>
+    </>
   )
 }
 

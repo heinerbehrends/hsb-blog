@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Link } from "gatsby"
-import { globalHeader } from "../styles.css"
-// @ts-ignore
+import { footer, globalHeader, main } from "../styles.css"
+//@ts-ignore
 import { MDXProvider } from "@mdx-js/react"
 import CodeBlock from "./codeBlock"
 
@@ -30,10 +30,10 @@ function Layout({ location, title, children }: LayoutProps) {
   return (
     <MDXProvider components={components}>
       <div className="global-wrapper" data-is-root-path={isRootPath}>
-        <main>
+        <main className={main}>
           <header className={globalHeader}>{header}</header>
           {children}
-          <footer>
+          <footer className={footer}>
             © {new Date().getFullYear()}, Built with love by
             {` `}
             <a href="https://www.flyfi.nl">flyfi</a>

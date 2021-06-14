@@ -31,9 +31,9 @@
      inkscape:window-height="1002"
      id="namedview1010"
      showgrid="false"
-     inkscape:zoom="0.56002305"
+     inkscape:zoom="0.79199219"
      inkscape:cx="69.452638"
-     inkscape:cy="228.23766"
+     inkscape:cy="225.71239"
      inkscape:window-x="0"
      inkscape:window-y="41"
      inkscape:window-maximized="1"
@@ -128,6 +128,13 @@
      groupmode="layer"
      label="Layer 1"
      id="g1006">
+    <rect
+       style="opacity:0.993245;fill:#ffffff;fill-opacity:1;stroke:#fd9206;stroke-width:0.799977;stroke-miterlimit:1.7;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
+       id="rect1584"
+       width="92.480949"
+       height="84.772926"
+       x="139.96469"
+       y="-2.8014729" />
     <g
        fill="#959595"
        stroke="url(#radialGradient2255)"

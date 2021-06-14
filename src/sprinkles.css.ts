@@ -2,12 +2,14 @@ import { createAtomicStyles, createAtomsFn } from "@vanilla-extract/sprinkles"
 
 const space = {
   none: 0,
-  xs: "4px",
-  s: "8px",
-  m: "12px",
-  l: "16px",
-  xl: "24px",
-  xxl: "32px",
+  auto: "auto",
+  xxs: "4px",
+  xs: "8px",
+  s: "12px",
+  m: "16px",
+  l: "24px",
+  xl: "32px",
+  xxl: "48px",
 }
 const fontSize = {
   small: "16px",
@@ -15,6 +17,11 @@ const fontSize = {
   large: "24px",
   extraLarge: "48px",
   huge: "64px",
+}
+
+const lineHeight = {
+  body: 1.6,
+  headings: 1.125,
 }
 
 const responsiveStyles = createAtomicStyles({
@@ -36,6 +43,7 @@ const responsiveStyles = createAtomicStyles({
       "space-between",
     ],
     alignItems: ["stretch", "flex-start", "center", "flex-end"],
+    lineHeight: lineHeight,
     fontSize: fontSize,
     paddingTop: space,
     paddingBottom: space,

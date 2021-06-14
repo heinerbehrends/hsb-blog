@@ -5,6 +5,7 @@ import Highlight, {
   PrismTheme,
 } from "prism-react-renderer"
 import theme from "../atomOneDark"
+import { codeBlock } from "../styles.css"
 
 type CodeBlockProps = {
   children: string
@@ -17,7 +18,7 @@ function CodeBlock({ children, className }: CodeBlockProps) {
   return (
     <Highlight
       {...defaultProps}
-      code={children}
+      code={children.trim()}
       language={language as Language}
       theme={theme as PrismTheme}
     >
