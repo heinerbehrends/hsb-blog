@@ -13,7 +13,11 @@ type CodeBlockProps = {
 }
 
 function CodeBlock({ children, className }: CodeBlockProps) {
-  const language = className.replace(/language-/, "")
+  // className is undefined on build time
+  var language = "javascript"
+  if (!!className) {
+    language = className.replace(/language-/, "")
+  }
 
   return (
     <Highlight
