@@ -13,7 +13,7 @@ const space = {
 }
 const fontSize = {
   small: "16px",
-  body: "20px",
+  body: "18px",
   large: "24px",
   extraLarge: "48px",
   huge: "64px",
