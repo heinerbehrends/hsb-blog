@@ -1,0 +1,53 @@
+---
+title: Responsive styles using CSS math functions
+date: "2021-07-09T09:12:03.284Z"
+description: "A code generator for responsive font size and grid layouts"
+---
+
+import VwFontSize from "../../src/components/vwFontSizeGenerator.tsx"
+import MinFnFontSize from "../../src/components/MinFnGenerator.tsx"
+import ClampFnFontSize from "../../src/components/ClampFnGenerator.tsx"
+import InteractiveGrid from "../../src/components/interactiveGrid.tsx"
+
+The CSS math functions min(), max(), minmax() and clamp() can be used for responsive typography and
+responsive grid layouts. These functions can be a bit confusing though. Who would have
+thought that to declare a maximum value you use the min() function?
+With this article I want to it easier to grasp the concept and present a code generator
+that demonstrates their usage. Let's start off with responsive typography.
+
+## Fluid Typography
+
+To make the text size scale with the width of the viewport we can use the vw unit. One vw
+(viewport width) is defined as one hundreds of the viewport width. If we want to calculate
+the right font size in vw units we need to know the preferred font size at a specified
+viewport width. For example, if we want a font size of 24 pixels at a 1200 pixel wide screen that would
+translate to 2vw (24 / (1200 / 100) = 2). Use the code generator below to get the right vw
+value for any given viewport width and font size.
+
+<br />
+<VwFontSize />
+<br />
+The second use case that we'll look at is a heading that grows taller as the viewport
+gets wider and stops growing as the maximum width of the layout is reached. An example
+for this behaviour is the text on the header of the home page of this blog. What
+we need to define here is the maximum width of the layout and the desired font size
+at the maximum width. The CSS min() function allows us to define the responsive preferred
+value and a maximum value.
+
+<br />
+<br />
+<MinFnFontSize />
+
+<br />
+The next example adds a minimum value to the equation. The clamp() function takes
+a minimum value, a responsive preferred value and a maximum value: clamp(min, preferred,
+max).
+
+<br />
+<br />
+<ClampFnFontSize />
+<br />
+
+## Responsive layouts without media queries
+
+<InteractiveGrid />
