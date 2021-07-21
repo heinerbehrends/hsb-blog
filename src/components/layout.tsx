@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Link } from "gatsby"
-import { footer, globalHeader, main } from "../styles.css"
+import { footer, headerPost, main } from "../styles.css"
 //@ts-ignore
 import { MDXProvider } from "@mdx-js/react"
 import CodeBlock from "./codeBlock"
@@ -20,7 +20,13 @@ function Layout({ location, title, children }: LayoutProps) {
   if (isRootPath) {
     header = null
   } else {
-    header = <Link to="/">{title}</Link>
+    header = (
+      <Link to="/">
+        <header className={headerPost}>
+          <em>{title}</em>
+        </header>
+      </Link>
+    )
   }
 
   const components = {
@@ -30,8 +36,8 @@ function Layout({ location, title, children }: LayoutProps) {
   return (
     <MDXProvider components={components}>
       <div className="global-wrapper" data-is-root-path={isRootPath}>
+        {header}
         <main className={main}>
-          <header className={globalHeader}>{header}</header>
           {children}
           <footer className={footer}>
             © {new Date().getFullYear()}, Built with love by
