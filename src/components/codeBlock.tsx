@@ -5,7 +5,6 @@ import Highlight, {
   PrismTheme,
 } from "prism-react-renderer"
 import theme from "../atomOneDark"
-import { codeBlock } from "../styles.css"
 
 type CodeBlockProps = {
   children: string
@@ -27,15 +26,22 @@ function CodeBlock({ children, className }: CodeBlockProps) {
       theme={theme as PrismTheme}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
-        <pre className={className} style={{ ...style, padding: "20px" }}>
-          {tokens.map((line, i) => (
-            <div key={i} {...getLineProps({ line, key: i })}>
-              {line.map((token, key) => (
-                <span key={key} {...getTokenProps({ token, key })} />
-              ))}
-            </div>
-          ))}
-        </pre>
+        <div style={{ borderRadius: "8px" }}>
+          <pre
+            className={className}
+            style={{
+              ...style,
+            }}
+          >
+            {tokens.map((line, i) => (
+              <div key={i} {...getLineProps({ line, key: i })}>
+                {line.map((token, key) => (
+                  <span key={key} {...getTokenProps({ token, key })} />
+                ))}
+              </div>
+            ))}
+          </pre>
+        </div>
       )}
     </Highlight>
   )
