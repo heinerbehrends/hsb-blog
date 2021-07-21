@@ -6,7 +6,9 @@ type HeaderProps = { siteTitle: string }
 export default function Header({ siteTitle }: HeaderProps) {
   return (
     <header className={headerHome}>
-      <h1 className={titleHeading}>{siteTitle}</h1>
+      <h1 className={titleHeading}>
+        <em>{siteTitle}</em>
+      </h1>
     </header>
   )
 }
