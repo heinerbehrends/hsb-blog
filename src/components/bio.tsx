@@ -36,7 +36,6 @@ function Bio() {
             src="../images/profile-pic.jpg"
             width={75}
             height={75}
-            quality={95}
             alt="Profile picture"
           />
         </div>
