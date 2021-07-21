@@ -12,11 +12,12 @@ const space = {
   xxl: "48px",
 }
 const fontSize = {
-  small: "16px",
+  s: "16px",
   body: "18px",
-  large: "24px",
-  extraLarge: "48px",
-  huge: "64px",
+  l: "24px",
+  xl: "32px",
+  xxl: "48px",
+  huge: "min(13vw, 64px)",
 }
 
 const lineHeight = {
@@ -45,6 +46,7 @@ const responsiveStyles = createAtomicStyles({
     alignItems: ["stretch", "flex-start", "center", "flex-end"],
     lineHeight: lineHeight,
     fontSize: fontSize,
+    textAlign: ["center", "inherit", "left", "right"],
     paddingTop: space,
     paddingBottom: space,
     paddingLeft: space,
@@ -88,6 +90,8 @@ const colorStyles = createAtomicStyles({
 })
 
 const weights = {
+  thin: 200,
+  medium: 300,
   body: 400,
   bold: 700,
   black: 900,
