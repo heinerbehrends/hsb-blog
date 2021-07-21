@@ -5,6 +5,7 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { BlogPostBySlugQuery } from "../../graphql-types"
+import { blogPostArticle } from "../styles.css"
 
 type BlogPostTemplateProps = {
   data: BlogPostBySlugQuery
@@ -23,7 +24,7 @@ const BlogPostTemplate = ({ data, location }: BlogPostTemplateProps) => {
         description={post?.frontmatter?.description ?? post?.excerpt}
       />
       <article
-        className="blog-post"
+        className={blogPostArticle}
         itemScope
         itemType="http://schema.org/Article"
       >
