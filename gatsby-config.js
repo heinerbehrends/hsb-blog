@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `The Frontmatter Blog`,
+    title: `frontmatter`,
     author: {
       name: `Heiner Behrends`,
       summary: `This is a place for me to share what I learn on my journey to become a better developer and designer. 
