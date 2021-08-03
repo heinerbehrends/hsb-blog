@@ -1,0 +1,86 @@
+---
+title: Responsive layouts with CSS grid
+date: "2021-07-21T09:12:03.284Z"
+description: "A blog post on responsive layouts using grid and CSS math 
+functions, featuring an interactive code generator for responsive layouts"
+---
+
+import InteractiveGrid from "./interactiveGrid.tsx"
+import ResponsiveGridGenerator from "./responsiveGridGenerator.tsx"
+import FixedSizeColumns from "./fixedSizeColums.tsx"
+import CodeBlock from "../../src/components/codeBlock.tsx"
+import Responsive1FrColumns from "./responsive1frColumns.tsx"
+import ResponsiveAutoFillFit from "./responsiveAutoFillFit.tsx"
+import MinFnGapSize from "./minFnGap.tsx"
+import AllTogether from "./allTogether.tsx"
+
+The CSS grid spec allows us to create responsive layouts without media queries by
+specifying the minimum width of a grid item. When the minumum width is reached one
+column will automagically be removed. This can be used to show a three column layout
+on desktop, a two column layout on tablets and a single column on mobile screens.
+The syntax requires us to understand the concepts of the _repeat_ function, the
+fraction unit _fr_, and the _minmax_ function. Here's what it looks like when
+everything is working together correctly (resize the window to see how the the
+layout shifts when the boxes become narrower than 100px):
+
+<br />
+<InteractiveGrid
+  nrOfItems={6}
+  gridStyle={{ gridTemplateColumns: `repeat(auto-fill, minmax(100px, 1fr))` }}
+/>
+
+## The repeat function
+
+So how does this magic work? Let's deepen our understanding by looking closer at the
+repeat function. It can be used to specify the number of columns in a
+grid _and_ their width. The following interactive example introduces the repeat
+function with a fixed number of columns and a fixed column width:
+
+<br />
+<FixedSizeColumns />
+
+## The fr unit
+
+If we want to divide the available space evenly among the columns we can use the
+fraction unit fr instead of a fixed pixel value.
+
+<br />
+<Responsive1FrColumns />
+
+## The minmax function
+
+The minmax function defines a _range_ of preferred values and a _maximum_ value.
+When the max value is 1fr the available space will be distributed evenly between
+the columns and we can use the min value to define the minimum width of the columns
+and the point at which the to define when the layout should change.
+
+<br />
+<ResponsiveGridGenerator />
+
+## Auto-fill and auto-fit
+
+To make the column grid responsive we need a more ambigious way to specify the number
+of columns. There are two options _auto-fill_ and _auto-fit_.
+They only differ when there are not enough grid items to fill all the columns of the
+first row.
+
+<br />
+<ResponsiveAutoFillFit />
+
+## Responsive gap
+
+More often that not it makes sense to make the gaps between the grid items responsive,
+too. To achieve this we can use the technique I described in my blog post about
+[fluid typography.](/fluid-typography) By defining the size of the gap in the
+vw (viewport width) unit the gap will grow with the screen size and by using the
+min function we can define a maximum value, so that the gap stops getting bigger
+once the maximum width of the layout is reached. All we need to know for this
+approach is the gap size at the maximum width of the layout.
+
+<br />
+<MinFnGapSize />
+
+## All together now
+
+<br />
+<AllTogether />
