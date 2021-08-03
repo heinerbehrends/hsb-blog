@@ -46,6 +46,7 @@ const responsiveStyles = createAtomicStyles({
     alignItems: ["stretch", "flex-start", "center", "flex-end"],
     lineHeight: lineHeight,
     fontSize: fontSize,
+    fontStyle: ["normal", "italic"],
     textAlign: ["center", "inherit", "left", "right"],
     paddingTop: space,
     paddingBottom: space,

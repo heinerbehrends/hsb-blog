@@ -3,10 +3,7 @@
   box-sizing: border-box;
   line-height: 1.66;
   --text-color: #333;
-}
-::selection {
-  background: darkblue;
-  color: white;
+  color: var(--text-color);
 }
 
 h1,
@@ -18,7 +15,14 @@ h6 {
   margin-bottom: 0;
   margin-top: 32px;
   line-height: 1;
-  color: var(--text-color);
+}
+
+h1 {
+  font-size: clamp(32px, 5.21vw, 40px);
+}
+
+h2 {
+  font-size: clamp(24px, 4.17vw, 32px);
 }
 
 a {
@@ -53,4 +57,12 @@ pre {
 
 hr {
   margin: 32px 0 32px 0;
+}
+
+select option {
+  background-color: white;
+  color: var(--text-color);
+}
+option:active {
+  background-color: darkblue;
 }

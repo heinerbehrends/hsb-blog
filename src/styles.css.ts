@@ -109,7 +109,6 @@ export const interactiveHeading = composeStyles(
 export const gridSection = composeStyles(
   style({
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))",
     gridGap: "16px",
   })
 )
@@ -118,3 +117,5 @@ export const gridBoxes = composeStyles(
   atoms({ textAlign: "center", paddingY: "l", fontSize: "xl" }),
   style({ border: "1px solid" })
 )
+
+export const date = atoms({ marginTop: "xs", fontStyle: "italic" })
