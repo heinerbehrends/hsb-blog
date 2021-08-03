@@ -1,9 +1,10 @@
 {
-  "include": ["custom.d.ts", "src"],
+  "include": ["custom.d.ts", "src", "content/fluid-typography/vwFontSizeGenerator.tsx", "content/fluid-typography/MinFnGenerator.tsx", "content/fluid-typography/ClampFnGenerator.tsx", "content/responsive-layouts/responsiveGridGenerator.tsx", "content/responsive-layouts/fixedSizeColums.tsx", "content/responsive-layouts/interactiveGrid.tsx", "content/fluid-typography/interactiveHeading.tsx"],
   "compilerOptions": {
     "jsx": "react",
     "strict": true,
     "esModuleInterop": true,
+    "downlevelIteration": true
   },
   "paths": {
     "src/*": "[*]"
