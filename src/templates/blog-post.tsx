@@ -5,7 +5,7 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { BlogPostBySlugQuery } from "../../graphql-types"
-import { blogPostArticle } from "../styles.css"
+import { blogPostArticle, date } from "../styles.css"
 
 type BlogPostTemplateProps = {
   data: BlogPostBySlugQuery
@@ -30,7 +30,7 @@ const BlogPostTemplate = ({ data, location }: BlogPostTemplateProps) => {
       >
         <header>
           <h1 itemProp="headline">{post?.frontmatter?.title}</h1>
-          <p>{post?.frontmatter?.date}</p>
+          <p className={date}>{post?.frontmatter?.date}</p>
         </header>
         <MDXRenderer>{post?.body ?? "There is no post body"}</MDXRenderer>
         <hr />

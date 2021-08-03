@@ -1,0 +1,46 @@
+---
+title: Fluid typography and CSS math functions
+date: "2021-07-09T09:12:03.284Z"
+description: "A blog post on fluid typography using CSS math functions, 
+featuring an interactive code generator for responsive font sizes"
+---
+
+import VwFontSize from "./vwFontSizeGenerator.tsx"
+import MinFnFontSize from "./MinFnGenerator.tsx"
+import ClampFnFontSize from "./ClampFnGenerator.tsx"
+
+The CSS math functions min(), max() and clamp() can be used for responsive font sizes.
+In this blog post I want to reveal to you the logic behind fluid typography and offer
+an interactive code generator, so you can easily experiment with the settings.
+
+Specifying the font size in vw units allows us to scale make the font size resond to
+the width of the viewport.
+vw (viewport width) is defined as 1/100 of the viewport width. To calculate
+the correct font size in vw units we need to know the preferred font size at a specific
+viewport width. For example, if we want a font size of 24 pixels at a 1200 pixel wide
+screen that would translate to 2vw (24 / (1200 / 100) = 2). Use the code generator
+below to get the right vw value for any given viewport width and font size.
+
+<br />
+<VwFontSize />
+<br />
+The second use case that we'll look at is a heading that grows taller as the viewport
+gets wider and stops growing as the maximum width of the layout is reached. An example
+for this behaviour is the text on the header of the home page of this blog. What
+we need to define here is the maximum width of the layout and the desired font size
+at the maximum width. The CSS min() function allows us to define the responsive preferred
+value and a maximum value.
+
+<br />
+<br />
+<MinFnFontSize />
+
+<br />
+The next example adds a minimum value to the equation. The clamp() function takes
+a minimum value, a responsive preferred value and a maximum value: clamp(min, preferred,
+max).
+
+<br />
+<br />
+<ClampFnFontSize />
+<br />
