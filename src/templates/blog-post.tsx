@@ -18,7 +18,7 @@ const BlogPostTemplate = ({ data, location }: BlogPostTemplateProps) => {
   const { previous, next } = data
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout link="/frontmatter" location={location} title={"frontmatter"}>
       <Seo
         title={post?.frontmatter?.title}
         description={post?.frontmatter?.description ?? post?.excerpt}
@@ -50,14 +50,14 @@ const BlogPostTemplate = ({ data, location }: BlogPostTemplateProps) => {
         >
           <li>
             {previous && (
-              <Link to={previous?.fields?.slug!} rel="prev">
+              <Link to={`/frontmatter${previous?.fields?.slug!}`} rel="prev">
                 ← {previous?.frontmatter?.title}
               </Link>
             )}
           </li>
           <li>
             {next && (
-              <Link to={next?.fields?.slug!} rel="next">
+              <Link to={`/frontmatter${next?.fields?.slug!}`} rel="next">
                 {next?.frontmatter?.title} →
               </Link>
             )}
