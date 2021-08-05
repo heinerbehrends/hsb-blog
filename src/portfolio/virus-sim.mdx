@@ -1,0 +1,23 @@
+---
+image: ../images/virus.jpg
+alt: "screen shot of the virus simulation app"
+title: MIT 6.00 virus sim
+description: 'Interactive version of the last problem set of the MIT 6.00 course
+"Introduction to computer science and programming"'
+url: https://virus-simulation-next.vercel.app/
+github: https://github.com/heinerbehrends/virus-simulation-next
+---
+
+An implementation of the
+[problem set 12 of the MIT course 6.00 ](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-00-introduction-to-computer-science-and-programming-fall-2008/assignments/pset12.pdf)
+_Introduction to computer science and programming_ using the Nextjs framework.
+Virus Sim is built using TypeScript and relies on functional programming priciples
+like closures for information hiding, pure functions and immutable data structures.
+This approach leads to a more maintainable code base and less mental overload
+compared to an object oriented approach that uses shared mutable state. I made use of the
+ramda library for its map and mapAccum functions and recharts for data visualisation
+and react-query to manage server state. All heavy computations are done on the
+server via Nextjs serverless functions.
+
+Check out the interactive simulation on Vercel: https://virus-simulation-next.vercel.app/ <br />
+And take a look at the code on github: https://github.com/heinerbehrends/virus-simulation-next
