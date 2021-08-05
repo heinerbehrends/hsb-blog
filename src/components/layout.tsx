@@ -9,19 +9,22 @@ type LayoutProps = {
   location: Location
   title: string
   children: React.ReactNode
+  link?: string
 }
 
-function Layout({ location, title, children }: LayoutProps) {
+function Layout({ location, title, children, link = "/" }: LayoutProps) {
   //@ts-expect-error
   const rootPath = `${__PATH_PREFIX__}/`
-  const isRootPath = location.pathname === rootPath
+  const blogPath = `${rootPath}frontmatter`
+  const isRootPath =
+    location.pathname === rootPath || location.pathname === blogPath
   let header
 
   if (isRootPath) {
     header = null
   } else {
     header = (
-      <Link to="/">
+      <Link to={link}>
         <header className={headerPost}>
           <em>{title}</em>
         </header>
