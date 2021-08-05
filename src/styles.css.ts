@@ -23,6 +23,25 @@ export const headerHome = style({
   backgroundSize: "cover",
 })
 
+export const postPreviewHeading = atoms({ marginTop: "none" })
+
+export const postPreviewContainer = composeStyles(
+  atoms({
+    background: "background",
+    paddingX: "l",
+    paddingBottom: "xl",
+    paddingY: "l",
+    marginTop: "xl",
+  }),
+  style({
+    transition: "transform 0.1s ease-in-out",
+    ":hover": {
+      transform: "scale(1.01)",
+      boxShadow: "1px 1px 5px lightgray",
+    },
+  })
+)
+
 export const headerPost = composeStyles(
   atoms({ fontWeight: "black", fontSize: "xl", color: "text" }),
   style({
@@ -39,6 +58,13 @@ export const headerPost = composeStyles(
     },
   })
 )
+
+export const homeh2 = atoms({
+  fontSize: "xxl",
+  textAlign: "center",
+  fontStyle: "italic",
+  marginTop: "xxl",
+})
 
 export const blogPostArticle = atoms({
   paddingX: "m",
@@ -119,3 +145,69 @@ export const gridBoxes = composeStyles(
 )
 
 export const date = atoms({ marginTop: "xs", fontStyle: "italic" })
+
+export const cardSection = composeStyles(
+  atoms({
+    marginTop: "xl",
+    paddingBottom: "xl",
+  }),
+  style({
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+    gridGap: "min(2.22vw, 16px)",
+  })
+)
+
+export const linkStyles = style({
+  ":hover": {
+    textDecoration: "none",
+  },
+})
+
+export const cardContainer = composeStyles(
+  atoms({
+    background: "background",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+  }),
+  style({
+    transition: "transform 0.1s ease-in-out",
+    ":hover": {
+      transform: "scale(1.01)",
+      boxShadow: "1px 1px 5px lightgray",
+    },
+  })
+)
+
+export const cardHeading = atoms({
+  marginTop: "l",
+  fontSize: "l",
+  textAlign: "center",
+})
+
+export const cardP = atoms({
+  marginTop: "none",
+  paddingX: "l",
+  paddingTop: "s",
+  paddingBottom: "m",
+})
+
+export const cardLinks = atoms({
+  display: "flex",
+  paddingX: "l",
+})
+
+export const cardLinkItem = composeStyles(
+  atoms({
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: "l",
+  }),
+  style({
+    width: "50%",
+  })
+)
+
+export const cardIconText = atoms({ marginRight: "xs" })
