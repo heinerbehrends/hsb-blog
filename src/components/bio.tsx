@@ -1,10 +1,10 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import { BioQueryQuery } from "../../graphql-types"
 import { bio, bioImage } from "../styles.css"
 
-function Bio() {
+function Bio({ children }: { children?: React.ReactNode }) {
   const data: BioQueryQuery = useStaticQuery(graphql`
     query BioQuery {
       site {
@@ -45,11 +45,12 @@ function Bio() {
         </p>
       </div>
       <p>
-        {author?.summary || null}
-
+        {!!children ? children : author?.summary || null} Feel free to check out
+        my <Link to="/">portfolio. </Link>
+        You can
         <a href={`https://twitter.com/ ${social?.twitter || ``}`}>
           {" "}
-          You can follow me on Twitter
+          follow me on Twitter.
         </a>
       </p>
     </>
