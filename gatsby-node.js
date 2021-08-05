@@ -5,13 +5,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions
 
   // Define a template for blog post
-  const blogPost = path.resolve(`./src/templates/blog-post.tsx`)
+  const blogTemplate = path.resolve(`./src/templates/blog-post.tsx`)
 
   // Get all markdown blog posts sorted by date
-  const result = await graphql(
+  const postsResult = await graphql(
     `
       {
         allMdx(
+          filter: { fileAbsolutePath: { regex: "/content/" } }
           sort: { fields: [frontmatter___date], order: ASC }
           limit: 1000
         ) {
@@ -26,15 +27,15 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
     `
   )
 
-  if (result.errors) {
+  if (postsResult.errors) {
     reporter.panicOnBuild(
       `There was an error loading your blog posts`,
-      result.errors
+      postsResult.errors
     )
     return
   }
 
-  const posts = result.data.allMdx.nodes
+  const posts = postsResult.data.allMdx.nodes
 
   // Create blog posts pages
   // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
@@ -46,12 +47,70 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       const nextPostId = index === posts.length - 1 ? null : posts[index + 1].id
 
       createPage({
-        path: post.fields.slug,
-        component: blogPost,
+        path: `frontmatter${post.fields.slug}`,
+        component: blogTemplate,
         context: {
           id: post.id,
           previousPostId,
           nextPostId,
+        },
+      })
+    })
+  }
+
+  // repeat above for portfolio pages
+  // Define a template for blog post
+  const portfolioTemplate = path.resolve(`./src/templates/portfolio-item.tsx`)
+
+  // Get all markdown blog posts sorted by date
+  const portfolioResult = await graphql(
+    `
+      {
+        allMdx(
+          filter: { fileAbsolutePath: { regex: "/portfolio/" } }
+          limit: 1000
+        ) {
+          nodes {
+            id
+            fields {
+              slug
+            }
+          }
+        }
+      }
+    `
+  )
+
+  if (portfolioResult.errors) {
+    reporter.panicOnBuild(
+      `There was an error loading your blog posts`,
+      portfolioResult.errors
+    )
+    return
+  }
+
+  const portfolioItems = portfolioResult.data.allMdx.nodes
+
+  // Create blog posts pages
+  // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
+  // `context` is available in the template as a prop and as a variable in GraphQL
+
+  if (portfolioItems.length > 0) {
+    portfolioItems.forEach((portfolioItem, index) => {
+      const previousPortfolioItemId =
+        index === 0 ? null : portfolioItems[index - 1].id
+      const nextPortfolioItemId =
+        index === portfolioItems.length - 1
+          ? null
+          : portfolioItems[index + 1].id
+
+      createPage({
+        path: portfolioItem.fields.slug,
+        component: portfolioTemplate,
+        context: {
+          id: portfolioItem.id,
+          previousPortfolioItemId,
+          nextPortfolioItemId,
         },
       })
     })
