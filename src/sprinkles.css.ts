@@ -25,6 +25,10 @@ const lineHeight = {
   headings: 1.125,
 }
 
+const borders = {
+  cardBorder: "1px dashed #ff0c0c",
+}
+
 const responsiveStyles = createAtomicStyles({
   conditions: {
     mobile: {},
@@ -33,7 +37,7 @@ const responsiveStyles = createAtomicStyles({
   },
   defaultCondition: "mobile",
   properties: {
-    display: ["none", "flex", "block", "inline"],
+    display: ["none", "flex", "block", "inline", "inline-block"],
     flexDirection: ["row", "column"],
     justifyContent: [
       "stretch",
@@ -48,6 +52,7 @@ const responsiveStyles = createAtomicStyles({
     fontSize: fontSize,
     fontStyle: ["normal", "italic"],
     textAlign: ["center", "inherit", "left", "right"],
+    textDecoration: ["none", "underline"],
     paddingTop: space,
     paddingBottom: space,
     paddingLeft: space,
@@ -56,6 +61,7 @@ const responsiveStyles = createAtomicStyles({
     marginBottom: space,
     marginLeft: space,
     marginRight: space,
+    border: borders,
   },
   shorthands: {
     padding: ["paddingTop", "paddingBottom", "paddingLeft", "paddingRight"],
@@ -73,7 +79,7 @@ const colors = {
   yellow: "#fbd900",
   text: "#444",
   lightText: "#f8f8ff",
-  background: "#f8f8ff",
+  background: "#f8f8f8",
   darkBackground: "#192734",
 }
 
