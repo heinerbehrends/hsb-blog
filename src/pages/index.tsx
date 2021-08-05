@@ -1,11 +1,13 @@
 import * as React from "react"
-import { graphql } from "gatsby"
+import { Link, graphql } from "gatsby"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { HomeQuery } from "../../graphql-types"
 import Header from "../components/header"
+import AllCards from "../components/allCards"
 import PostsPreview from "../components/postsPreview"
+import { homeh2, linkStyles } from "../styles.css"
 
 type HomeProps = {
   data: HomeQuery
@@ -32,10 +34,19 @@ function Home({ data, location }: HomeProps) {
 
   return (
     <>
-      <Header siteTitle={siteTitle} />
+      <Header siteTitle={"hsbehrends"} />
       <Layout location={location} title={siteTitle}>
-        <Seo title="All posts" />
-        <Bio />
+        <Seo title="Heiner S. Behrends - web developer" />
+        <Bio>
+          <em>hsbehrends.eu</em> is home to my portfolio and blog. Here I
+          present personal projects focused on interactivity and{" "}
+          <Link to="/blog">blog posts</Link> that document my learning progress.
+        </Bio>
+        <h2 className={homeh2}>Portfolio</h2>
+        <AllCards />
+        <Link to={"/frontmatter"} className={linkStyles}>
+          <h2 className={homeh2}>Frontmatter Blog</h2>
+        </Link>
         <PostsPreview posts={posts} />
       </Layout>
     </>
@@ -51,7 +62,10 @@ export const pageQuery = graphql`
         title
       }
     }
-    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMdx(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { fileAbsolutePath: { regex: "/content/" } }
+    ) {
       nodes {
         excerpt
         fields {
