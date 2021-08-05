@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `frontmatter`,
+    title: `heinerbehrends`,
     author: {
       name: `Heiner Behrends`,
       summary: `This is a place for me to share what I learn on my journey to become a better developer and designer. 
@@ -48,6 +48,13 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `portfolio`,
+        path: `${__dirname}/src/portfolio`,
       },
     },
     {
