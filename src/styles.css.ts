@@ -116,9 +116,8 @@ export const numberInput = composeStyles(
     paddingTop: "4px",
     display: "inline",
     border: "none",
+    borderBottom: "1px solid #444",
     textAlign: "center",
-    borderBottom: "1px solid black",
-    borderColor: "text",
     backgroundColor: "#FFFF66",
     ":focus": {
       outline: "none",
