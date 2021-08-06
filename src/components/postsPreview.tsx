@@ -26,15 +26,15 @@ export default function PostsPreview({ posts }: PostPreviewProps) {
 
         return (
           <li key={post?.fields?.slug}>
-            <article
-              className={postPreviewContainer}
-              itemScope
-              itemType="http://schema.org/Article"
+            <Link
+              to={`/frontmatter${post.fields?.slug}` as string}
+              className={linkStyles}
+              itemProp="url"
             >
-              <Link
-                to={`/frontmatter${post.fields?.slug}` as string}
-                className={linkStyles}
-                itemProp="url"
+              <article
+                className={postPreviewContainer}
+                itemScope
+                itemType="http://schema.org/Article"
               >
                 <header>
                   <h2 className={postPreviewHeading}>
@@ -50,8 +50,8 @@ export default function PostsPreview({ posts }: PostPreviewProps) {
                     itemProp="description"
                   />
                 </section>
-              </Link>
-            </article>
+              </article>
+            </Link>
           </li>
         )
       })}
