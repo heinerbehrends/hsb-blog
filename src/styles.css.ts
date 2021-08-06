@@ -47,7 +47,7 @@ export const headerPost = composeStyles(
   style({
     display: "grid",
     alignItems: "center",
-    height: "12.5vh",
+    height: "16.667vh",
     backgroundImage: "url(/quasicrystals-color-reversed.svg)",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
@@ -66,9 +66,7 @@ export const homeh2 = atoms({
   marginTop: "xxl",
 })
 
-export const blogPostArticle = atoms({
-  paddingX: "m",
-})
+export const blogPostHeading = atoms({ marginTop: "xxl" })
 
 export const bio = atoms({
   display: "flex",
@@ -211,3 +209,16 @@ export const cardLinkItem = composeStyles(
 )
 
 export const cardIconText = atoms({ marginRight: "xs" })
+
+export const portfolioItemHeading = atoms({
+  textAlign: "center",
+  marginTop: "xxl",
+})
+
+export const portfolioImage = atoms({
+  marginTop: "m",
+})
+
+export const hrStyles = atoms({
+  marginTop: "none",
+})
