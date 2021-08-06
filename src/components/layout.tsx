@@ -15,7 +15,7 @@ type LayoutProps = {
 function Layout({ location, title, children, link = "/" }: LayoutProps) {
   //@ts-expect-error
   const rootPath = `${__PATH_PREFIX__}/`
-  const blogPath = `${rootPath}frontmatter`
+  const blogPath = `${rootPath}frontmatter/`
   const isRootPath =
     location.pathname === rootPath || location.pathname === blogPath
   let header
@@ -45,7 +45,7 @@ function Layout({ location, title, children, link = "/" }: LayoutProps) {
           <footer className={footer}>
             © {new Date().getFullYear()}, Built with love by
             {` `}
-            <a href="https://www.flyfi.nl">flyfi</a>
+            <a href="https://www.flyfi.nl/">flyfi</a>
             <br />
             Check out my <a href="/">portfolio</a> on the home page.
           </footer>
