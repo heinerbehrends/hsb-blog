@@ -23,6 +23,26 @@ type CardProps = {
   github: string
 }
 
+type PortfolioLinksProps = {
+  url: string
+  github: string
+}
+
+export function PortfolioLinks({ url, github }: PortfolioLinksProps) {
+  return (
+    <div className={cardLinks}>
+      <a className={cardLinkItem} href={url}>
+        <span className={cardIconText}>Link</span>
+        <LinkIcon />
+      </a>
+      <a className={cardLinkItem} href={github}>
+        <span className={cardIconText}>Code</span>
+        <Code />
+      </a>
+    </div>
+  )
+}
+
 export default function Card({
   slug,
   image,
@@ -39,16 +59,7 @@ export default function Card({
         <h3 className={cardHeading}>{title}</h3>
         <p className={cardP}>{text}</p>
       </Link>
-      <div className={cardLinks}>
-        <a className={cardLinkItem} href={url}>
-          <span className={cardIconText}>Link</span>
-          <LinkIcon />
-        </a>
-        <a className={cardLinkItem} href={github}>
-          <span className={cardIconText}>Code</span>
-          <Code />
-        </a>
-      </div>
+      <PortfolioLinks github={github} url={url} />
     </div>
   )
 }
