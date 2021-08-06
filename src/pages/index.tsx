@@ -7,7 +7,7 @@ import { HomeQuery } from "../../graphql-types"
 import Header from "../components/header"
 import AllCards from "../components/allCards"
 import PostsPreview from "../components/postsPreview"
-import { homeh2, linkStyles } from "../styles.css"
+import { homeh2, hrStyles, linkStyles } from "../styles.css"
 
 type HomeProps = {
   data: HomeQuery
@@ -44,6 +44,7 @@ function Home({ data, location }: HomeProps) {
         </Bio>
         <h2 className={homeh2}>Portfolio</h2>
         <AllCards />
+        <hr className={hrStyles} />
         <Link to={"/frontmatter"} className={linkStyles}>
           <h2 className={homeh2}>Frontmatter Blog</h2>
         </Link>
