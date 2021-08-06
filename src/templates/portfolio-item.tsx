@@ -3,11 +3,18 @@ import { Link, graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
-import { BlogPostBySlugQuery } from "../../graphql-types"
-import { blogPostArticle, date } from "../styles.css"
+import { PortfolioItemBySlugQuery } from "../../graphql-types"
+import {
+  date,
+  hrStyles,
+  portfolioImage,
+  portfolioItemHeading,
+} from "../styles.css"
+import { GatsbyImage } from "gatsby-plugin-image"
+import { PortfolioLinks } from "../components/card"
 
 type BlogPostTemplateProps = {
-  data: BlogPostBySlugQuery
+  data: PortfolioItemBySlugQuery
   location: Location
 }
 
@@ -22,18 +29,27 @@ const PortfolioItemTemplate = ({ data, location }: BlogPostTemplateProps) => {
         title={post?.frontmatter?.title}
         description={post?.frontmatter?.description ?? post?.excerpt}
       />
-      <article
-        className={blogPostArticle}
-        itemScope
-        itemType="http://schema.org/Article"
-      >
+      <article>
         <header>
-          <h1 itemProp="headline">{post?.frontmatter?.title}</h1>
+          <h1 className={portfolioItemHeading} itemProp="headline">
+            {post?.frontmatter?.title}
+          </h1>
           <p className={date}>{post?.frontmatter?.date}</p>
         </header>
+        <a href={post?.frontmatter?.url!}>
+          <GatsbyImage
+            image={post?.frontmatter?.image?.childImageSharp?.gatsbyImageData!}
+            alt={post?.frontmatter?.alt!}
+            className={portfolioImage}
+          />
+        </a>
         <MDXRenderer>{post?.body ?? "There is no post body"}</MDXRenderer>
-        <hr />
+        <PortfolioLinks
+          url={post?.frontmatter?.url!}
+          github={post?.frontmatter?.github!}
+        />
       </article>
+      <hr className={hrStyles} />
       <footer>
         <nav className="blog-post-nav">
           <ul
@@ -87,6 +103,14 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        image {
+          childImageSharp {
+            gatsbyImageData(width: 720)
+          }
+        }
+        alt
+        url
+        github
       }
     }
     previous: mdx(id: { eq: $previousPortfolioItemId }) {
