@@ -59,7 +59,7 @@ export default function ClampFnFontSize() {
       </InteractiveCode>
       <InteractiveHeading cssValue={cssValue} />
       <CodeBlock className="language-css">
-        {`/* edit the numbers above and resize the window*/\nfont-size: ${cssValue}`}
+        {`/* edit the numbers above and resize the window */\nfont-size: ${cssValue}`}
       </CodeBlock>
     </section>
   )
