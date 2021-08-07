@@ -1,6 +1,8 @@
 import * as React from "react"
 import { Link, graphql } from "gatsby"
+import { GatsbyImage } from "gatsby-plugin-image"
 import { MDXRenderer } from "gatsby-plugin-mdx"
+import { PortfolioLinks } from "../components/card"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { PortfolioItemBySlugQuery } from "../../graphql-types"
@@ -10,8 +12,6 @@ import {
   portfolioImage,
   portfolioItemHeading,
 } from "../styles.css"
-import { GatsbyImage } from "gatsby-plugin-image"
-import { PortfolioLinks } from "../components/card"
 
 type BlogPostTemplateProps = {
   data: PortfolioItemBySlugQuery
