@@ -23,7 +23,6 @@ fraction unit _fr_, and the _minmax_ function. Here's what it looks like when
 everything is working together correctly (resize the window to see how the the
 layout shifts when the boxes become narrower than 100px):
 
-<br />
 <InteractiveGrid
   nrOfItems={6}
   gridStyle={{ gridTemplateColumns: `repeat(auto-fill, minmax(100px, 1fr))` }}
@@ -31,10 +30,10 @@ layout shifts when the boxes become narrower than 100px):
 
 ## The repeat function
 
-So how does this magic work? Let's deepen our understanding by looking closer at the
-repeat function. It can be used to specify the number of columns in a
-grid _and_ their width. The following interactive example introduces the repeat
-function with a fixed number of columns and a fixed column width:
+So how does this magic work? Let's deepen our understanding by taking a closer
+look at the repeat function. It can be used to specify the number of columns
+in a grid _and_ their width. The following interactive example introduces the
+repeat function with a fixed number of columns and a fixed column width:
 
 <br />
 <FixedSizeColumns />
@@ -77,10 +76,8 @@ min function we can define a maximum value, so that the gap stops getting bigger
 once the maximum width of the layout is reached. All we need to know for this
 approach is the gap size at the maximum width of the layout.
 
-<br />
 <MinFnGapSize />
 
 ## All together now
 
-<br />
 <AllTogether />

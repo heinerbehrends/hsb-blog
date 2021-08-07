@@ -21,26 +21,15 @@ viewport width. For example, if we want a font size of 24 pixels at a 1200 pixel
 screen that would translate to 2vw (24 / (1200 / 100) = 2). Use the code generator
 below to get the right vw value for any given viewport width and font size.
 
-<br />
 <VwFontSize />
-<br />
 The second use case that we'll look at is a heading that grows taller as the viewport
 gets wider and stops growing as the maximum width of the layout is reached. An example
 for this behaviour is the text on the header of the home page of this blog. What
 we need to define here is the maximum width of the layout and the desired font size
 at the maximum width. The CSS min() function allows us to define the responsive preferred
 value and a maximum value.
-
-<br />
-<br />
 <MinFnFontSize />
-
-<br />
 The next example adds a minimum value to the equation. The clamp() function takes
 a minimum value, a responsive preferred value and a maximum value: clamp(min, preferred,
 max).
-
-<br />
-<br />
 <ClampFnFontSize />
-<br />
