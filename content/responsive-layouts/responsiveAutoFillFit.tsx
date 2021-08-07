@@ -18,10 +18,10 @@ export const stretchOptions = [
 ]
 export default function ResponsiveAutoFillFit() {
   const [nrOfItems, setNrOfItems] = useState("1")
-  const [fitOrFill, setFitOrFill] = useState("auto-fill")
+  const [doesStretch, setDoesStretch] = useState("auto-fill")
 
   const gridStyle = {
-    gridTemplateColumns: `repeat(${fitOrFill}, minmax(100px, 1fr))`,
+    gridTemplateColumns: `repeat(${doesStretch}, minmax(100px, 1fr))`,
   }
   return (
     <section>
@@ -32,22 +32,24 @@ export default function ResponsiveAutoFillFit() {
       >
         The number of grid items should be{" "}
       </InteractiveCode>{" "}
-      <br />
       <em>and when there are not enough items to fill a row</em>
-      <InteractiveSelect
-        append=" to fill the space."
-        value={fitOrFill}
-        options={stretchOptions}
-        onChangeFn={setFitOrFill}
-      >
-        the columns should{" "}
-      </InteractiveSelect>
-      <br />
+      <label style={{ display: "inline-block" }}>
+        {" "}
+        the columns should
+        <InteractiveSelect
+          value={doesStretch}
+          options={stretchOptions}
+          onChangeCallback={setDoesStretch}
+        >
+          {" "}
+          to fill the space
+        </InteractiveSelect>
+      </label>
       <InteractiveGrid gridStyle={gridStyle} nrOfItems={nrOfItems} />
       <CodeBlock className={"language-css"}>
         {`/* Change the values above */
 display: grid;
-grid-template-columns: repeat(${fitOrFill}, minmax(100px, 1fr));`}
+grid-template-columns: repeat(${doesStretch}, minmax(100px, 1fr));`}
       </CodeBlock>
     </section>
   )
