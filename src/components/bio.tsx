@@ -41,7 +41,7 @@ function Bio({ children }: { children?: React.ReactNode }) {
         </div>
 
         <p>
-          Written by <strong>{author?.name}</strong>. <br />{" "}
+          Written by <strong>{author?.name}</strong>.{" "}
         </p>
       </div>
       <p>
