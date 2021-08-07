@@ -31,7 +31,7 @@ export default function MinFnGapSize() {
       <InteractiveCode value={maximum} onChangeFn={onChange(setMaximum)}>
         the gap size should be{" "}
       </InteractiveCode>
-      <br />
+
       <InteractiveGrid nrOfItems={"12"} gridStyle={gridStyle} />
       <CodeBlock className="language-css">
         {`/* edit the numbers above and resize the window */

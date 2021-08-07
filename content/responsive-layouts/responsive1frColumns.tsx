@@ -19,7 +19,6 @@ export default function Responsive1FrColumns() {
       >
         The number of grid items should be{" "}
       </InteractiveCode>{" "}
-      <br />
       <InteractiveCode
         value={nrOfColumns}
         onChangeFn={onChange(setNrOfColumns)}
@@ -27,8 +26,6 @@ export default function Responsive1FrColumns() {
       >
         and the number of columns should be{" "}
       </InteractiveCode>
-      <br />
-      <br />
       <InteractiveGrid gridStyle={gridStyle} nrOfItems={nrOfItems} />
       <CodeBlock className={"language-css"}>
         {`/* edit the number above and resize the window */
