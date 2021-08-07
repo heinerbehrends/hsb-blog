@@ -5,7 +5,7 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { BlogPostBySlugQuery } from "../../graphql-types"
-import { blogPostHeading, date } from "../styles.css"
+import { blogPostHeader, date } from "../styles.css"
 
 type BlogPostTemplateProps = {
   data: BlogPostBySlugQuery
@@ -17,14 +17,14 @@ const BlogPostTemplate = ({ data, location }: BlogPostTemplateProps) => {
   const { previous, next } = data
 
   return (
-    <Layout link="/frontmatter" location={location} title={"frontmatter"}>
+    <Layout link="/frontmatter/" location={location} title={"frontmatter"}>
       <Seo
         title={post?.frontmatter?.title}
         description={post?.frontmatter?.description ?? post?.excerpt}
       />
       <article itemScope itemType="http://schema.org/Article">
         <header>
-          <h1 className={blogPostHeading} itemProp="headline">
+          <h1 className={blogPostHeader} itemProp="headline">
             {post?.frontmatter?.title}
           </h1>
           <p className={date}>{post?.frontmatter?.date}</p>
