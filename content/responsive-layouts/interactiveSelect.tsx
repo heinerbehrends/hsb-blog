@@ -9,20 +9,21 @@ export type InteractiveSelectProps = {
   }[]
   children: string | string[]
   value: string
-  onChangeFn: React.Dispatch<React.SetStateAction<string>>
-  append?: string
+  onChangeCallback: React.Dispatch<React.SetStateAction<string>>
+}
+
+function InteractiveSelectLabel(props) {
+  return <></>
 }
 
 export default function InteractiveSelect({
   options,
   children,
-  append,
   value,
-  onChangeFn,
+  onChangeCallback: onChangeFn,
 }: InteractiveSelectProps) {
   return (
-    <section>
-      <em>{children}</em>
+    <>
       <select
         className={numberInput}
         name="autoFillFit"
@@ -36,7 +37,7 @@ export default function InteractiveSelect({
           </option>
         ))}
       </select>
-      <em>{append}</em>
-    </section>
+      {children}
+    </>
   )
 }
