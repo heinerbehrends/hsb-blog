@@ -66,7 +66,7 @@ export const homeh2 = atoms({
   marginTop: "xxl",
 })
 
-export const blogPostHeading = atoms({ marginTop: "xxl" })
+export const blogPostHeader = atoms({ marginTop: "xxl" })
 
 export const bio = atoms({
   display: "flex",
@@ -130,6 +130,7 @@ export const interactiveHeading = composeStyles(
 )
 
 export const gridSection = composeStyles(
+  atoms({ marginTop: "l" }),
   style({
     display: "grid",
     gridGap: "16px",
@@ -192,7 +193,6 @@ export const cardP = atoms({
 
 export const cardLinks = atoms({
   display: "flex",
-  paddingX: "l",
 })
 
 export const cardLinkItem = composeStyles(
@@ -204,6 +204,9 @@ export const cardLinkItem = composeStyles(
   }),
   style({
     width: "50%",
+    ":hover": {
+      boxShadow: "1px 1px 5px lightgray",
+    },
   })
 )
 

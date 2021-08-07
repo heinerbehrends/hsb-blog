@@ -24,6 +24,7 @@ h1 {
 
 h2 {
   font-size: clamp(24px, 4.17vw, 32px);
+  margin-top: 48px;
 }
 
 a {
@@ -49,6 +50,7 @@ pre {
   font-family: Fira Code;
   padding: 20px;
   margin-left: -1rem;
+  margin-top: 24px;
   width: 100%;
   font-size: 18px;
   border-radius: 8px;
