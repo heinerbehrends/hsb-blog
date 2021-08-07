@@ -54,7 +54,7 @@ export default function Card({
 }: CardProps) {
   return (
     <div className={cardContainer}>
-      <Link className={linkStyles} to={`/${slug}`}>
+      <Link className={linkStyles} to={`/${slug}/`}>
         <GatsbyImage image={image} alt={alt} />
         <h3 className={cardHeading}>{title}</h3>
         <p className={cardP}>{text}</p>
