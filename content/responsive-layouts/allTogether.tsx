@@ -35,7 +35,7 @@ export default function AllTogether() {
       >
         The number of grid items should be{" "}
       </InteractiveCode>
-
+      <br />
       <InteractiveCode
         value={minimum}
         append="pixels."
@@ -43,19 +43,23 @@ export default function AllTogether() {
       >
         The minimum size of a grid item should be{" "}
       </InteractiveCode>
-
+      <br />
       <em>When there are not enough items to fill a row</em>
+      <br />
+      <em>the columns should </em>
       <InteractiveSelect
         options={stretchOptions}
         value={fitOrFill}
         onChangeCallback={setFitOrFill}
       >
-        the columns should{" "}
+        {" "}
+        to fill the space
       </InteractiveSelect>
+      <br />
       <InteractiveCode value={viewport} onChangeFn={onChange(setViewport)}>
         At the maximum layout width of{" "}
       </InteractiveCode>
-
+      <br />
       <InteractiveCode
         value={maximum}
         onChangeFn={onChange(setMaximum)}

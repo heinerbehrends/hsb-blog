@@ -19,6 +19,7 @@ export default function Responsive1FrColumns() {
       >
         The number of grid items should be{" "}
       </InteractiveCode>{" "}
+      <br />
       <InteractiveCode
         value={nrOfColumns}
         onChangeFn={onChange(setNrOfColumns)}

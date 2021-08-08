@@ -19,7 +19,7 @@ export default function ResponsiveGridGenerator() {
       >
         The number of grid items should be{" "}
       </InteractiveCode>
-
+      <br />
       <InteractiveCode value={minimum} onChangeFn={onChange(setMinimum)}>
         and the minimum size of a grid item should be{" "}
       </InteractiveCode>

@@ -20,6 +20,7 @@ export default function fixedSizeColums() {
       >
         The number of grid items should be{" "}
       </InteractiveCode>{" "}
+      <br />
       <InteractiveCode
         value={nrOfColumns}
         onChangeFn={onChange(setNrOfColumns)}
@@ -27,6 +28,7 @@ export default function fixedSizeColums() {
       >
         the number of columns should be{" "}
       </InteractiveCode>
+      <br />
       <InteractiveCode value={size} onChangeFn={onChange(setSize)}>
         and the size of a grid item should be{" "}
       </InteractiveCode>

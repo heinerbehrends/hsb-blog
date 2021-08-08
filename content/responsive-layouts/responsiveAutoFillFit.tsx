@@ -32,10 +32,11 @@ export default function ResponsiveAutoFillFit() {
       >
         The number of grid items should be{" "}
       </InteractiveCode>{" "}
+      <br />
       <em>and when there are not enough items to fill a row</em>
-      <label style={{ display: "inline-block" }}>
+      <label style={{ display: "inline-block", fontStyle: "italic" }}>
         {" "}
-        the columns should
+        the columns should{" "}
         <InteractiveSelect
           value={doesStretch}
           options={stretchOptions}
