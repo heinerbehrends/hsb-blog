@@ -27,7 +27,7 @@ export default function AllTogether() {
     gridTemplateColumns: `repeat(${fitOrFill}, minmax(${minimum}px, 1fr))`,
   }
   return (
-    <section id="tldr">
+    <section style={{ marginTop: "16px" }} id="tldr">
       <InteractiveCode
         value={nrOfItems}
         onChangeFn={onChange(setNrOfItems)}
