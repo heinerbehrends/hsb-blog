@@ -6,16 +6,29 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { BlogPostBySlugQuery } from "../../graphql-types"
 import { blogPostHeader, date } from "../styles.css"
+import { ShareMenu } from "../components/share"
 
 type BlogPostTemplateProps = {
   data: BlogPostBySlugQuery
   location: Location
+  pageContext: PageContextBlog
 }
 
-const BlogPostTemplate = ({ data, location }: BlogPostTemplateProps) => {
+type PageContextBlog = {
+  url: string
+  frontmatter: {
+    title: string
+  }
+}
+
+const BlogPostTemplate = ({
+  data,
+  location,
+  pageContext,
+}: BlogPostTemplateProps) => {
   const post = data.mdx
   const { previous, next } = data
-
+  const shareUrl = `www.heinerbehrends.eu/${pageContext.url}`
   return (
     <Layout link="/frontmatter/" location={location} title={"frontmatter"}>
       <Seo
@@ -29,7 +42,9 @@ const BlogPostTemplate = ({ data, location }: BlogPostTemplateProps) => {
           </h1>
           <p className={date}>{post?.frontmatter?.date}</p>
         </header>
+        <ShareMenu title={pageContext.frontmatter.title} url={shareUrl} />
         <MDXRenderer>{post?.body ?? "There is no post body"}</MDXRenderer>
+        <ShareMenu title={pageContext.frontmatter.title} url={shareUrl} />
         <hr />
         <footer>
           <Bio />
