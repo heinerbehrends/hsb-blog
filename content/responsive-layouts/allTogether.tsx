@@ -13,14 +13,14 @@ import {
 } from "../fluid-typography/vwFontSizeGenerator"
 
 export default function AllTogether() {
-  const [minimum, setMinimum] = useState("100")
   const [nrOfItems, setNrOfItems] = useState("12")
+  const [minimum, setMinimum] = useState("100")
   const [fitOrFill, setFitOrFill] = useState("auto-fill")
   const [viewport, setViewport] = useState("768")
-  const [maximum, setMaximum] = useState("16")
-  const vwGapSeize = truncateFloat(Number(maximum) / (Number(viewport) / 100))
+  const [gapSize, setGapSize] = useState("16")
+  const vwGapSeize = truncateFloat(Number(gapSize) / (Number(viewport) / 100))
   const gridGapValue = `min(${isNumber(vwGapSeize) ? vwGapSeize : ""}vw, ${
-    isStringNumber(maximum) ? maximum : ""
+    isStringNumber(gapSize) ? gapSize : ""
   }px)`
   const gridStyle = {
     gridGap: `${gridGapValue}`,
@@ -61,8 +61,8 @@ export default function AllTogether() {
       </InteractiveCode>
       <br />
       <InteractiveCode
-        value={maximum}
-        onChangeFn={onChange(setMaximum)}
+        value={gapSize}
+        onChangeFn={onChange(setGapSize)}
         append="pixel."
       >
         the gap size should be{" "}
