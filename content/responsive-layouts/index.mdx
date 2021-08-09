@@ -2,7 +2,8 @@
 title: Responsive layouts with CSS grid
 date: "2021-07-21T09:12:03.284Z"
 description: "An easy to understand explanation of responsive layouts using css 
-grid and CSS math functions, featuring an interactive code generator."
+grid and math functions, featuring an interactive code generator."
+keywords: webdev, css, cssgrid, responsive, layout, code generator
 ---
 
 import InteractiveGrid from "./interactiveGrid.tsx"
@@ -48,10 +49,11 @@ fraction unit fr instead of a fixed pixel value.
 
 ## The minmax function
 
-The minmax function defines a _range_ of preferred values and a _maximum_ value.
-When the max value is 1fr the available space will be distributed evenly between
-the columns and we can use the min value to define the minimum width of the columns
-and the point at which the to define when the layout should change.
+The minmax function defines a _range_ of preferred values between a _minimum_ and
+a _maximum_ value.
+When the maximum value is 1fr the available space will be distributed evenly
+between the columns and we can use the miminum value to define the point at
+which the layout should change.
 
 <br />
 <ResponsiveGridGenerator />
