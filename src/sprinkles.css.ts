@@ -10,6 +10,7 @@ const space = {
   l: "24px",
   xl: "32px",
   xxl: "48px",
+  huge: "64px",
 }
 const fontSize = {
   s: "16px",
