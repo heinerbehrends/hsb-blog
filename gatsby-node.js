@@ -21,6 +21,11 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             fields {
               slug
             }
+            frontmatter {
+              keywords
+              title
+              description
+            }
           }
         }
       }
@@ -36,7 +41,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   }
 
   const posts = postsResult.data.allMdx.nodes
-
+  console.log(posts)
   // Create blog posts pages
   // But only if there's at least one markdown file found at "content/blog" (defined in gatsby-config.js)
   // `context` is available in the template as a prop and as a variable in GraphQL
@@ -53,6 +58,8 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
           id: post.id,
           previousPostId,
           nextPostId,
+          url: `frontmatter${post.fields.slug}`,
+          frontmatter: post.frontmatter,
         },
       })
     })
