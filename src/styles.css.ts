@@ -1,4 +1,5 @@
 import { style, composeStyles } from "@vanilla-extract/css"
+import { isExportDeclaration } from "typescript"
 import { atoms } from "./sprinkles.css"
 
 export const titleHeading = composeStyles(
@@ -224,3 +225,22 @@ export const portfolioImage = atoms({
 export const hrStyles = atoms({
   marginTop: "none",
 })
+
+export const shareIcons = composeStyles(
+  atoms({
+    display: "flex",
+    background: "yellow",
+    marginRight: "l",
+    marginTop: "xxl",
+    marginBottom: "l",
+  }),
+  style({
+    height: "48px",
+    width: "48px",
+    borderRadius: "50%",
+    alignItems: "center",
+    justifyContent: "center",
+  })
+)
+
+export const shareIconsContainer = composeStyles(atoms({ display: "flex" }))
