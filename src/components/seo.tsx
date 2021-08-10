@@ -12,6 +12,7 @@ type SeoProps = {
   description?: string
   lang?: string
   title?: string
+  ogimage?: string
   meta?: MetaArray
 }
 
@@ -20,6 +21,7 @@ const Seo = ({
   lang = `en`,
   meta = [],
   title = "Title",
+  ogimage = "heinerbehrends.eu/og-frontmatter-blog.png",
 }: SeoProps) => {
   const data: MetaQuery = useStaticQuery(
     graphql`
@@ -55,6 +57,10 @@ const Seo = ({
     {
       property: `og:type`,
       content: `website`,
+    },
+    {
+      property: "og:image",
+      content: ogimage,
     },
     {
       name: `twitter:card`,
