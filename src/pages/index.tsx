@@ -36,7 +36,10 @@ function Home({ data, location }: HomeProps) {
     <>
       <Header siteTitle={"hsbehrends"} />
       <Layout location={location} title={siteTitle}>
-        <Seo title="Heiner S. Behrends - web developer" />
+        <Seo
+          title="Heiner S. Behrends - web developer"
+          ogimage="heinerbehrends.eu/og-heinerbehrends.png"
+        />
         <Bio>
           <em>hsbehrends.eu</em> is home to my portfolio and blog. Here I
           present personal projects focused on interactivity and{" "}
