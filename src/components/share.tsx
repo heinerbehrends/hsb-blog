@@ -10,11 +10,6 @@ type ShareProps = {
   url: string
 }
 
-type TwitterShareProps = {
-  url: string
-  title: string
-}
-
 type ShareMenuProps = {
   url: string
   title: string
@@ -25,15 +20,6 @@ function Share({ url, children }: ShareProps) {
     <a className={shareIcons} href={url}>
       {children}
     </a>
-  )
-}
-
-export function TwitterShare({ url, title }: TwitterShareProps) {
-  const shareUrl = `https://twitter.com/intent/tweet?url=${url}&via=%40hsbehrends&text=${title}&hashtags=%23webdev%2C%20%23css%2C%20%23cssgrid%2C%20`
-  return (
-    <Share url={shareUrl}>
-      <TwitterIcon />
-    </Share>
   )
 }
 
