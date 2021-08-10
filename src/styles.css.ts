@@ -229,14 +229,14 @@ export const hrStyles = atoms({
 export const shareIcons = composeStyles(
   atoms({
     display: "flex",
-    background: "yellow",
-    marginRight: "l",
+    background: "orange",
+    marginRight: "xl",
     marginTop: "xxl",
     marginBottom: "l",
   }),
   style({
-    height: "48px",
-    width: "48px",
+    height: "40px",
+    width: "40px",
     borderRadius: "50%",
     alignItems: "center",
     justifyContent: "center",
