@@ -20,7 +20,6 @@ type PageContextBlog = {
     title: string
   }
 }
-
 const BlogPostTemplate = ({
   data,
   location,
@@ -34,6 +33,7 @@ const BlogPostTemplate = ({
       <Seo
         title={post?.frontmatter?.title}
         description={post?.frontmatter?.description ?? post?.excerpt}
+        ogimage={post?.frontmatter?.ogimage!}
       />
       <article itemScope itemType="http://schema.org/Article">
         <header>
@@ -42,9 +42,9 @@ const BlogPostTemplate = ({
           </h1>
           <p className={date}>{post?.frontmatter?.date}</p>
         </header>
-        <ShareMenu title={pageContext.frontmatter.title} url={shareUrl} />
+        <ShareMenu title={post?.frontmatter?.title!} url={shareUrl} />
         <MDXRenderer>{post?.body ?? "There is no post body"}</MDXRenderer>
-        <ShareMenu title={pageContext.frontmatter.title} url={shareUrl} />
+        <ShareMenu title={post?.frontmatter?.title!} url={shareUrl} />
         <hr />
         <footer>
           <Bio />
@@ -98,6 +98,7 @@ export const pageQuery = graphql`
       excerpt(pruneLength: 160)
       body
       frontmatter {
+        ogimage
         title
         date(formatString: "MMMM DD, YYYY")
         description
