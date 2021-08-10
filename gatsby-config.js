@@ -1,15 +1,14 @@
 module.exports = {
   siteMetadata: {
-    title: `heinerbehrends`,
+    title: `heinerbehrends.eu`,
     author: {
       name: `Heiner Behrends`,
-      summary: `This is a place for me to share what I learn on my journey to become a better developer and designer. 
-      A blog with a focus on front-end development, Jamstack, serverless and UI/UX.`,
+      summary: `hsbehrends.eu is home to my portfolio and blog. Here I present personal projects focused on interactivity and blog posts that document my learning progress. `,
     },
-    description: `I share stuff that I learn on my journey to become a better developer`,
+    description: `hsbehrends.eu is home to my portfolio and blog. `,
     siteUrl: `https://heinerbehrends.eu/`,
     social: {
-      twitter: `hsbehrends`,
+      twitter: `@hsbehrends`,
     },
   },
   plugins: [
@@ -25,7 +24,7 @@ module.exports = {
         icon: `src/images/quasicrystals-icon.png`,
       },
     },
-    // `gatsby-plugin-graphql-codegen`,
+    `gatsby-plugin-graphql-codegen`,
     `gatsby-plugin-vanilla-extract`,
     {
       resolve: "gatsby-plugin-react-svg",
