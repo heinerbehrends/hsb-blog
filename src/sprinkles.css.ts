@@ -77,6 +77,7 @@ const responsiveStyles = createAtomicStyles({
 
 const colors = {
   red: "#ff0c0c",
+  orange: "orange",
   yellow: "#fbd900",
   text: "#444",
   lightText: "#f8f8ff",
