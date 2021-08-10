@@ -318,18 +318,21 @@ export type SitePageContext = {
   id?: Maybe<Scalars['String']>;
   previousPostId?: Maybe<Scalars['String']>;
   nextPostId?: Maybe<Scalars['String']>;
+  url?: Maybe<Scalars['String']>;
   previousPortfolioItemId?: Maybe<Scalars['String']>;
   nextPortfolioItemId?: Maybe<Scalars['String']>;
 };
 
 export type MdxFrontmatter = {
   title: Scalars['String'];
-  date?: Maybe<Scalars['Date']>;
-  description?: Maybe<Scalars['String']>;
   image?: Maybe<File>;
   alt?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
   url?: Maybe<Scalars['String']>;
   github?: Maybe<Scalars['String']>;
+  date?: Maybe<Scalars['Date']>;
+  ogimage?: Maybe<Scalars['String']>;
+  keywords?: Maybe<Scalars['String']>;
 };
 
 
@@ -1313,12 +1316,14 @@ export type MdxFilterInput = {
 
 export type MdxFrontmatterFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
-  date?: Maybe<DateQueryOperatorInput>;
-  description?: Maybe<StringQueryOperatorInput>;
   image?: Maybe<FileFilterInput>;
   alt?: Maybe<StringQueryOperatorInput>;
+  description?: Maybe<StringQueryOperatorInput>;
   url?: Maybe<StringQueryOperatorInput>;
   github?: Maybe<StringQueryOperatorInput>;
+  date?: Maybe<DateQueryOperatorInput>;
+  ogimage?: Maybe<StringQueryOperatorInput>;
+  keywords?: Maybe<StringQueryOperatorInput>;
 };
 
 export type FileFilterInput = {
@@ -1576,8 +1581,6 @@ export type FileFieldsEnum =
   | 'childrenMdx___rawBody'
   | 'childrenMdx___fileAbsolutePath'
   | 'childrenMdx___frontmatter___title'
-  | 'childrenMdx___frontmatter___date'
-  | 'childrenMdx___frontmatter___description'
   | 'childrenMdx___frontmatter___image___sourceInstanceName'
   | 'childrenMdx___frontmatter___image___absolutePath'
   | 'childrenMdx___frontmatter___image___relativePath'
@@ -1617,8 +1620,12 @@ export type FileFieldsEnum =
   | 'childrenMdx___frontmatter___image___id'
   | 'childrenMdx___frontmatter___image___children'
   | 'childrenMdx___frontmatter___alt'
+  | 'childrenMdx___frontmatter___description'
   | 'childrenMdx___frontmatter___url'
   | 'childrenMdx___frontmatter___github'
+  | 'childrenMdx___frontmatter___date'
+  | 'childrenMdx___frontmatter___ogimage'
+  | 'childrenMdx___frontmatter___keywords'
   | 'childrenMdx___slug'
   | 'childrenMdx___body'
   | 'childrenMdx___excerpt'
@@ -1674,8 +1681,6 @@ export type FileFieldsEnum =
   | 'childMdx___rawBody'
   | 'childMdx___fileAbsolutePath'
   | 'childMdx___frontmatter___title'
-  | 'childMdx___frontmatter___date'
-  | 'childMdx___frontmatter___description'
   | 'childMdx___frontmatter___image___sourceInstanceName'
   | 'childMdx___frontmatter___image___absolutePath'
   | 'childMdx___frontmatter___image___relativePath'
@@ -1715,8 +1720,12 @@ export type FileFieldsEnum =
   | 'childMdx___frontmatter___image___id'
   | 'childMdx___frontmatter___image___children'
   | 'childMdx___frontmatter___alt'
+  | 'childMdx___frontmatter___description'
   | 'childMdx___frontmatter___url'
   | 'childMdx___frontmatter___github'
+  | 'childMdx___frontmatter___date'
+  | 'childMdx___frontmatter___ogimage'
+  | 'childMdx___frontmatter___keywords'
   | 'childMdx___slug'
   | 'childMdx___body'
   | 'childMdx___excerpt'
@@ -2696,6 +2705,7 @@ export type SitePageContextFilterInput = {
   id?: Maybe<StringQueryOperatorInput>;
   previousPostId?: Maybe<StringQueryOperatorInput>;
   nextPostId?: Maybe<StringQueryOperatorInput>;
+  url?: Maybe<StringQueryOperatorInput>;
   previousPortfolioItemId?: Maybe<StringQueryOperatorInput>;
   nextPortfolioItemId?: Maybe<StringQueryOperatorInput>;
 };
@@ -2934,6 +2944,7 @@ export type SitePageFieldsEnum =
   | 'context___id'
   | 'context___previousPostId'
   | 'context___nextPostId'
+  | 'context___url'
   | 'context___previousPortfolioItemId'
   | 'context___nextPortfolioItemId';
 
@@ -3016,8 +3027,6 @@ export type MdxFieldsEnum =
   | 'rawBody'
   | 'fileAbsolutePath'
   | 'frontmatter___title'
-  | 'frontmatter___date'
-  | 'frontmatter___description'
   | 'frontmatter___image___sourceInstanceName'
   | 'frontmatter___image___absolutePath'
   | 'frontmatter___image___relativePath'
@@ -3099,8 +3108,12 @@ export type MdxFieldsEnum =
   | 'frontmatter___image___internal___owner'
   | 'frontmatter___image___internal___type'
   | 'frontmatter___alt'
+  | 'frontmatter___description'
   | 'frontmatter___url'
   | 'frontmatter___github'
+  | 'frontmatter___date'
+  | 'frontmatter___ogimage'
+  | 'frontmatter___keywords'
   | 'slug'
   | 'body'
   | 'excerpt'
@@ -4199,7 +4212,7 @@ export type BlogPostBySlugQueryVariables = Exact<{
 
 export type BlogPostBySlugQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title'>> }>, mdx?: Maybe<(
     Pick<Mdx, 'id' | 'excerpt' | 'body'>
-    & { frontmatter?: Maybe<Pick<MdxFrontmatter, 'title' | 'date' | 'description'>> }
+    & { frontmatter?: Maybe<Pick<MdxFrontmatter, 'ogimage' | 'title' | 'date' | 'description'>> }
   )>, previous?: Maybe<{ fields?: Maybe<Pick<MdxFields, 'slug'>>, frontmatter?: Maybe<Pick<MdxFrontmatter, 'title'>> }>, next?: Maybe<{ fields?: Maybe<Pick<MdxFields, 'slug'>>, frontmatter?: Maybe<Pick<MdxFrontmatter, 'title'>> }> };
 
 export type PortfolioItemBySlugQueryVariables = Exact<{
