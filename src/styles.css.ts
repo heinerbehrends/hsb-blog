@@ -130,6 +130,8 @@ export const interactiveHeading = composeStyles(
   atoms({ marginTop: "l", paddingRight: "l", fontWeight: "thin" })
 )
 
+export const interactiveSection = atoms({ marginTop: "m" })
+
 export const gridSection = composeStyles(
   atoms({ marginTop: "l" }),
   style({
@@ -194,6 +196,7 @@ export const cardP = atoms({
 
 export const cardLinks = atoms({
   display: "flex",
+  marginTop: "l",
 })
 
 export const cardLinkItem = composeStyles(
@@ -223,7 +226,7 @@ export const portfolioImage = atoms({
 })
 
 export const hrStyles = atoms({
-  marginTop: "none",
+  marginTop: "xxl",
 })
 
 export const shareIcons = composeStyles(
@@ -231,7 +234,7 @@ export const shareIcons = composeStyles(
     display: "flex",
     background: "orange",
     marginRight: "xl",
-    marginTop: "xxl",
+    marginTop: "xl",
     marginBottom: "l",
   }),
   style({
@@ -243,4 +246,6 @@ export const shareIcons = composeStyles(
   })
 )
 
-export const shareIconsContainer = composeStyles(atoms({ display: "flex" }))
+export const shareIconsContainer = atoms({ display: "flex" })
+
+export const prevNextNav = atoms({ marginTop: "xxl" })
