@@ -58,10 +58,6 @@ pre {
   overflow: auto;
 }
 
-hr {
-  margin: 32px 0 32px 0;
-}
-
 select option {
   background-color: white;
   color: var(--text-color);
