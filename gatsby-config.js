@@ -12,6 +12,10 @@ module.exports = {
     },
   },
   plugins: [
+    // `gatsby-plugin-graphql-codegen`,
+    `gatsby-plugin-image`,
+    `gatsby-plugin-preact`,
+    `gatsby-plugin-vanilla-extract`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -24,8 +28,6 @@ module.exports = {
         icon: `src/images/quasicrystals-icon.png`,
       },
     },
-    `gatsby-plugin-graphql-codegen`,
-    `gatsby-plugin-vanilla-extract`,
     {
       resolve: "gatsby-plugin-react-svg",
       options: {
@@ -34,7 +36,6 @@ module.exports = {
         },
       },
     },
-    `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -67,7 +68,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 630,
+              maxWidth: 720,
             },
           },
           {
@@ -76,7 +77,6 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
-          // `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
         ],
