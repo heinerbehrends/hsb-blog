@@ -11,6 +11,7 @@ import {
   hrStyles,
   portfolioImage,
   portfolioItemHeading,
+  prevNextNav,
 } from "../styles.css"
 
 type BlogPostTemplateProps = {
@@ -18,7 +19,10 @@ type BlogPostTemplateProps = {
   location: Location
 }
 
-const PortfolioItemTemplate = ({ data, location }: BlogPostTemplateProps) => {
+export default function PortfolioItemTemplate({
+  data,
+  location,
+}: BlogPostTemplateProps) {
   const post = data.mdx
   const siteTitle = data.site?.siteMetadata?.title || `Title`
   const { previous, next } = data
@@ -51,7 +55,7 @@ const PortfolioItemTemplate = ({ data, location }: BlogPostTemplateProps) => {
       </article>
       <hr className={hrStyles} />
       <footer>
-        <nav className="blog-post-nav">
+        <nav className={prevNextNav}>
           <ul
             style={{
               display: `flex`,
@@ -81,8 +85,6 @@ const PortfolioItemTemplate = ({ data, location }: BlogPostTemplateProps) => {
     </Layout>
   )
 }
-
-export default PortfolioItemTemplate
 
 export const pageQuery = graphql`
   query PortfolioItemBySlug(

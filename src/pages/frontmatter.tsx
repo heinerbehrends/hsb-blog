@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -35,7 +35,14 @@ function BlogIndex({ data, location }: BlogIndexProps) {
       <Header siteTitle={"frontmatter"} />
       <Layout location={location} title={siteTitle}>
         <Seo title="All posts" />
-        <Bio />
+        <Bio>
+          On the
+          <b>
+            <em> frontmatter </em>
+          </b>
+          blog I share my knowledge and document my learning progress. Feel free
+          to check out my <Link to="/">portfolio. </Link>
+        </Bio>
         <PostsPreview posts={posts} />
       </Layout>
     </>

@@ -41,9 +41,12 @@ function Home({ data, location }: HomeProps) {
           ogimage="https://www.heinerbehrends.eu/og-heinerbehrends.png"
         />
         <Bio>
-          <em>hsbehrends.eu</em> is home to my portfolio and blog. Here I
-          present personal projects focused on interactivity and{" "}
-          <Link to="/blog">blog posts</Link> that document my learning progress.
+          <b>
+            <em>hsbehrends.eu </em>
+          </b>
+          is home to my portfolio and blog. Here I present personal projects
+          focused on interactivity and <Link to="/blog">blog posts</Link> that
+          document my learning progress.
         </Bio>
         <h2 className={homeh2}>Portfolio</h2>
         <AllCards />

@@ -5,7 +5,7 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 import { BlogPostBySlugQuery } from "../../graphql-types"
-import { blogPostHeader, date } from "../styles.css"
+import { blogPostHeader, date, hrStyles, prevNextNav } from "../styles.css"
 import { ShareMenu } from "../components/share"
 
 type BlogPostTemplateProps = {
@@ -20,11 +20,12 @@ type PageContextBlog = {
     title: string
   }
 }
-const BlogPostTemplate = ({
+
+export default function BlogPostTemplate({
   data,
   location,
   pageContext,
-}: BlogPostTemplateProps) => {
+}: BlogPostTemplateProps) {
   const post = data.mdx
   const { previous, next } = data
   const shareUrl = `www.heinerbehrends.eu/${pageContext.url}`
@@ -45,12 +46,12 @@ const BlogPostTemplate = ({
         <ShareMenu title={post?.frontmatter?.title!} url={shareUrl} />
         <MDXRenderer>{post?.body ?? "There is no post body"}</MDXRenderer>
         <ShareMenu title={post?.frontmatter?.title!} url={shareUrl} />
-        <hr />
+        <hr className={hrStyles} />
         <footer>
           <Bio />
         </footer>
       </article>
-      <nav className="blog-post-nav">
+      <nav className={prevNextNav}>
         <ul
           style={{
             display: `flex`,
@@ -79,8 +80,6 @@ const BlogPostTemplate = ({
     </Layout>
   )
 }
-
-export default BlogPostTemplate
 
 export const pageQuery = graphql`
   query BlogPostBySlug(

@@ -3,9 +3,15 @@ import { graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import { FourOhFourQuery } from "../../graphql-types"
 
-function NotFoundPage({ data, location }) {
-  const siteTitle = data.site.siteMetadata.title
+type NotFoundPageProps = {
+  data: FourOhFourQuery
+  location: Location
+}
+
+function NotFoundPage({ data, location }: NotFoundPageProps) {
+  const siteTitle = data?.site?.siteMetadata?.title!
 
   return (
     <Layout location={location} title={siteTitle}>
@@ -19,7 +25,7 @@ function NotFoundPage({ data, location }) {
 export default NotFoundPage
 
 export const pageQuery = graphql`
-  query {
+  query FourOhFour {
     site {
       siteMetadata {
         title
