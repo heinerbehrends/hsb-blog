@@ -3,6 +3,7 @@ import InteractiveGrid from "./interactiveGrid"
 import { onChange } from "../fluid-typography/ClampFnGenerator"
 import CodeBlock from "../../src/components/codeBlock"
 import InteractiveCode from "../../src/components/InteractiveCode"
+import { interactiveSection } from "../../src/styles.css"
 
 export default function fixedSizeColums() {
   const [size, setSize] = useState("200")
@@ -12,7 +13,7 @@ export default function fixedSizeColums() {
     gridTemplateColumns: `repeat(${nrOfColumns}, ${size}px)`,
   }
   return (
-    <section>
+    <section className={interactiveSection}>
       <InteractiveCode
         value={nrOfItems}
         onChangeFn={onChange(setNrOfItems)}
