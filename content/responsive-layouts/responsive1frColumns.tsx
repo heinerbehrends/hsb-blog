@@ -3,6 +3,7 @@ import { onChange } from "../fluid-typography/ClampFnGenerator"
 import InteractiveGrid from "./interactiveGrid"
 import CodeBlock from "../../src/components/codeBlock"
 import InteractiveCode from "../../src/components/InteractiveCode"
+import { interactiveSection } from "../../src/styles.css"
 
 export default function Responsive1FrColumns() {
   const [nrOfItems, setNrOfItems] = useState("3")
@@ -11,7 +12,7 @@ export default function Responsive1FrColumns() {
     gridTemplateColumns: `repeat(${nrOfColumns}, 1fr)`,
   }
   return (
-    <section>
+    <section className={interactiveSection}>
       <InteractiveCode
         value={nrOfItems}
         onChangeFn={onChange(setNrOfItems)}

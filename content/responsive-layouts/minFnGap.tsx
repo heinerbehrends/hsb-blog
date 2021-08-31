@@ -9,6 +9,7 @@ import {
   truncateFloat,
 } from "../fluid-typography/vwFontSizeGenerator"
 import { onChange } from "../fluid-typography/ClampFnGenerator"
+import { interactiveSection } from "../../src/styles.css"
 
 export default function MinFnGapSize() {
   const [viewport, setViewport] = useState("768")
@@ -24,10 +25,11 @@ export default function MinFnGapSize() {
   }
 
   return (
-    <section style={{ display: "flex", flexDirection: "column" }}>
+    <section className={interactiveSection}>
       <InteractiveCode value={viewport} onChangeFn={onChange(setViewport)}>
         At the maximum layout width of{" "}
       </InteractiveCode>
+      <br />
       <InteractiveCode value={maximum} onChangeFn={onChange(setMaximum)}>
         the gap size should be{" "}
       </InteractiveCode>

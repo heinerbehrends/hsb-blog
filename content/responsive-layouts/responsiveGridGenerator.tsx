@@ -3,6 +3,7 @@ import InteractiveGrid from "./interactiveGrid"
 import CodeBlock from "../../src/components/codeBlock"
 import InteractiveCode from "../../src/components/InteractiveCode"
 import { onChange } from "../fluid-typography/ClampFnGenerator"
+import { interactiveSection } from "../../src/styles.css"
 
 export default function ResponsiveGridGenerator() {
   const [minimum, setMinimum] = useState("100")
@@ -11,7 +12,7 @@ export default function ResponsiveGridGenerator() {
     gridTemplateColumns: `repeat(auto-fill, minmax(${minimum}px, 1fr))`,
   }
   return (
-    <section id="tldr">
+    <section className={interactiveSection} id="tldr">
       <InteractiveCode
         value={nrOfItems}
         onChangeFn={onChange(setNrOfItems)}

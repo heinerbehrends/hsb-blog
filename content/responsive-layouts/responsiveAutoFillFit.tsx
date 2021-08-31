@@ -3,7 +3,7 @@ import CodeBlock from "../../src/components/codeBlock"
 import InteractiveCode from "../../src/components/InteractiveCode"
 import InteractiveGrid from "./interactiveGrid"
 import InteractiveSelect from "./interactiveSelect"
-import { numberInput } from "../../src/styles.css"
+import { interactiveSection, numberInput } from "../../src/styles.css"
 import { onChange } from "../fluid-typography/ClampFnGenerator"
 
 export const stretchOptions = [
@@ -24,7 +24,7 @@ export default function ResponsiveAutoFillFit() {
     gridTemplateColumns: `repeat(${doesStretch}, minmax(100px, 1fr))`,
   }
   return (
-    <section>
+    <section className={interactiveSection}>
       <InteractiveCode
         value={nrOfItems}
         onChangeFn={onChange(setNrOfItems)}
