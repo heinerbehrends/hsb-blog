@@ -1,0 +1,150 @@
+---
+title: A scroll animation with React hooks
+date: "2021-10-11T09:12:03.284Z"
+description: "An example of a using the scroll position to animate an element is React using useEffect, useState and useRef"
+ogimage: https://www.heinerbehrends.eu/og-scroll-animation.png
+---
+
+import CodeBlock from "../../src/components/codeBlock"
+import StackBlitz from "../../src/components/stackBlitz"
+
+On the marketing page of my web development agency I use a video loop of a running
+greyhound dog as a hero image. In this article I described how I used React hooks
+to animate this loop, so the dog runs away when the user scrolls down.
+
+## The objectives
+
+- When the user scolls down the element should move to the right.
+- It should start moving slowly and accelerate.
+- Its position should be reset when the user scrolls up.
+- This one-off animation on the landing page should use as little code as possible, so
+  instead of using a scroll hook from a library we'll roll our own.
+
+## The event listener and useEffect
+
+Let's start off with the basics: adding an event listener for the scroll event and
+logging the scroll value to the console. We use a useEffect hook to add the event
+listener after the DOM has loaded. We want the effect to run only once when the
+component is mounted, so weadd an empty dependency array.
+The effect returns a function that removes the event listener to prevent a memory leak.
+
+## The window object and server-side rendering
+
+To prevent a 'window is not defined' error while server-side rendering, the getScrollPosition
+function returns zero if window is undefined.
+
+<CodeBlock className={"language-typescript"}>
+  {`function getScrollPosition() {
+  if (typeof window === "undefined") return 0;
+  return window.scrollY;
+}
+${" "}
+useEffect(() => {
+  function logScroll() {
+    console.log(getScrollPosition());
+  }
+  window.addEventListener('scroll', logScroll);
+  return () => {
+    window.removeEventListener('scroll', logScroll);
+  };
+}, []); // empty array means the effect will run only once`}
+</CodeBlock>
+
+## Using transform: translateX to move the element
+
+Now let's use the scroll position to move the element. First we need a ref to the element,
+so that we can manipulate it's position. Then we change its position using the style.transform
+property.
+
+<CodeBlock className={"language-typescript"}>
+  {`const element = useRef(null);
+${" "}
+useEffect(() => {
+  function moveElement() {
+    element.current.style.transform = \`translateX(\${getScrollPosition()}px)\`
+  }
+  window.addEventListener('scroll', moveElement);
+  return () => {
+    window.removeEventListener('scroll', moveElement);
+  };
+}, [])
+return (
+  <div ref={element} />
+)`}
+</CodeBlock>
+
+## requestAnimationFrame to the rescue
+
+Next we'll use the [requestAnimationFrame](https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame)
+function to tell the browser what we're up to.
+This will make sure that the animation functions gets called before the next repaint.
+
+<CodeBlock className={"language-typescript"}>
+  {`function handleScroll() {
+  requestAnimationFrame(moveElement)
+}
+window.addEventListener('scroll', handleScroll);
+return () => {
+  window.removeEventListener('scroll', handleScroll);
+};`}
+</CodeBlock>
+
+## A home grown ease-in function
+
+The next step is to change the movement of the element so that it starts to move slowly
+and accelerate as the user is scrolling down. To achieve this we'll use an
+[exponential function](https://en.wikipedia.org/wiki/Exponential_function).
+
+<CodeBlock className={"language-typescript"}>
+  {`function easeIn({ value, divisor, exponent }) {
+  return Math.pow(value / divisor, exponent)
+}`}
+</CodeBlock>
+
+## Capturing the scroll direction
+
+The last step to achieve the objectives is to reset the position of the element
+when the user scrolls up, so that is never moves backwards. We'll use a ref that holds
+the last scroll position and one that holds the current scroll direction.
+In a function we compare the last position to the current position and set the scroll direction
+accordingly. As a last step we update the last position ref to the current position.
+
+<CodeBlock className={"language-typescript"}>
+  {`const lastPosition = useRef(getScrollPosition());
+const isScrollingUp = useRef(false);
+${" "}
+function handleScrollDirection() {
+  const scrollPosition = getScrollPosition();
+  if (scrollPosition < lastPosition.current) {
+    isScrollingUp.current = true;
+  } else {
+    isScrollingUp.current = false;
+  }
+  lastPosition.current = scrollPosition;
+}`}
+
+</CodeBlock>
+Now we can use the scroll direction to reset the position of the element when the user scrolls up.
+<CodeBlock className={'language-typescript'}>
+  {`const offset = isScrollingUp.current
+  ? 0
+  : easeIn({
+      value: getScrollPosition(),
+      divisor: 50,
+      exponent: 4,
+    });`}
+</CodeBlock>
+
+## Putting it all together
+
+To see how all the pieces work together here's a interactive stack blitz editor that shows
+how all the code is working together.
+Click on the preview button to see the scroll animation in action. You can make changes to
+the code and immediately see the results in the preview.
+
+<br />
+
+<StackBlitz projectId="react-ts-e4qefd" view="editor" height={500} />
+
+You can have a look at [flyfi.nl](https://www.flyfi.nl/) to see the original greyhound animation in action.
+If you enjoyed this blog post check out my other posts and share it with others.
