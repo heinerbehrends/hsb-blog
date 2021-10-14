@@ -3,8 +3,14 @@ import InteractiveCode, {
   isStringNumber,
 } from "../../src/components/InteractiveCode"
 import CodeBlock from "../../src/components/codeBlock"
-import { isNumber, truncateFloat } from "./vwFontSizeGenerator"
 import InteractiveHeading from "./interactiveHeading"
+
+export function truncateFloat(number: number) {
+  return Number.isInteger(number) ? Number(number) : Number(number.toFixed(2))
+}
+export function isNumber(value: unknown) {
+  return typeof value === "number" && isFinite(value)
+}
 
 export function onChange(
   setInput: React.Dispatch<React.SetStateAction<string>>
@@ -23,21 +29,6 @@ export default function ClampFnFontSize() {
   const [maximum, setMaximum] = useState("48")
 
   const vwValue = truncateFloat(Number(preferred) / (Number(viewport) / 100))
-
-  // IDEE VOOR BLOG? CURRYING
-
-  // function onChange1(event: React.ChangeEvent<HTMLInputElement>) {
-  //   setInput1(event.target.value)
-  // }
-  // function onChange2(event: React.ChangeEvent<HTMLInputElement>) {
-  //   setInput2(event.target.value)
-  // }
-  // function onChange3(event: React.ChangeEvent<HTMLInputElement>) {
-  //   setInput3(event.target.value)
-  // }
-  // function onChange4(event: React.ChangeEvent<HTMLInputElement>) {
-  //   setInput4(event.target.value)
-  // }
 
   const cssValue = `clamp(${isStringNumber(minimum) ? minimum : ""}px, ${
     isNumber(vwValue) ? vwValue : ""
