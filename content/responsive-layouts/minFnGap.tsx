@@ -6,9 +6,9 @@ import InteractiveCode, {
 } from "../../src/components/InteractiveCode"
 import {
   isNumber,
+  onChange,
   truncateFloat,
-} from "../fluid-typography/vwFontSizeGenerator"
-import { onChange } from "../fluid-typography/ClampFnGenerator"
+} from "../fluid-typography/ClampFnGenerator"
 import { interactiveSection } from "../../src/styles.css"
 
 export default function MinFnGapSize() {

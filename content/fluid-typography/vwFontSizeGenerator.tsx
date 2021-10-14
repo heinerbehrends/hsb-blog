@@ -1,15 +1,9 @@
 import React, { useState } from "react"
 import { onChange } from "./ClampFnGenerator"
+import { isNumber, truncateFloat } from "./ClampFnGenerator"
 import CodeBlock from "../../src/components/codeBlock"
 import InteractiveCode from "../../src/components/InteractiveCode"
 import InteractiveHeading from "./interactiveHeading"
-
-export function truncateFloat(number: number) {
-  return Number.isInteger(number) ? Number(number) : Number(number.toFixed(2))
-}
-export function isNumber(value: unknown) {
-  return typeof value === "number" && isFinite(value)
-}
 
 export default function VwFontSize() {
   const [viewport, setViewport] = useState("768")

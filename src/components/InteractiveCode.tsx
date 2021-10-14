@@ -1,6 +1,6 @@
 import React from "react"
+import { isNumber } from "../../content/fluid-typography/ClampFnGenerator"
 import { numberInput } from "../styles.css"
-import { isNumber } from "../../content/fluid-typography/vwFontSizeGenerator"
 
 export type InteractiveCodeProps = {
   children: string | string[]

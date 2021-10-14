@@ -1,11 +1,10 @@
 import React, { useState } from "react"
-import { onChange } from "./ClampFnGenerator"
+import { isNumber, onChange, truncateFloat } from "./ClampFnGenerator"
 import CodeBlock from "../../src/components/codeBlock"
 import InteractiveCode, {
   isStringNumber,
 } from "../../src/components/InteractiveCode"
 import InteractiveHeading from "./interactiveHeading"
-import { isNumber, truncateFloat } from "./vwFontSizeGenerator"
 
 export default function MinFnFontSize() {
   const [viewport, setViewport] = useState("768")

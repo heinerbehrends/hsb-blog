@@ -4,13 +4,13 @@ import CodeBlock from "../../src/components/codeBlock"
 import InteractiveCode, {
   isStringNumber,
 } from "../../src/components/InteractiveCode"
-import { onChange } from "../fluid-typography/ClampFnGenerator"
+import {
+  isNumber,
+  onChange,
+  truncateFloat,
+} from "../fluid-typography/ClampFnGenerator"
 import InteractiveSelect from "./interactiveSelect"
 import { stretchOptions } from "./responsiveAutoFillFit"
-import {
-  truncateFloat,
-  isNumber,
-} from "../fluid-typography/vwFontSizeGenerator"
 
 export default function AllTogether() {
   const [nrOfItems, setNrOfItems] = useState("12")

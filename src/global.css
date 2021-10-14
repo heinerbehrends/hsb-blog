@@ -48,11 +48,11 @@ ol {
 
 pre {
   font-family: Fira Code;
+  font-size: 14px;
   padding: 20px;
   margin-left: -1rem;
   margin-top: 24px;
   width: 100%;
-  font-size: 18px;
   border-radius: 8px;
   /* overflow-wrap: normal; */
   overflow: auto;
@@ -61,4 +61,8 @@ pre {
 select option {
   background-color: white;
   color: var(--text-color);
+}
+
+span.punctuation {
+  color: rgb(171, 178, 191) !important;
 }
