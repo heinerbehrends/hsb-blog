@@ -1,5 +1,4 @@
 import { style, composeStyles } from "@vanilla-extract/css"
-import { isExportDeclaration } from "typescript"
 import { atoms } from "./sprinkles.css"
 
 export const titleHeading = composeStyles(
@@ -17,8 +16,8 @@ export const titleHeading = composeStyles(
 export const headerHome = style({
   display: "grid",
   alignItems: "center",
-  height: "60vh",
-  backgroundImage: "url(/quasicrystals-color-reversed.svg)",
+  height: "66vh",
+  backgroundImage: "url(/quasicrystals-big.svg)",
   backgroundRepeat: "no-repeat",
   backgroundPosition: "center",
   backgroundSize: "cover",
@@ -49,7 +48,7 @@ export const headerPost = composeStyles(
     display: "grid",
     alignItems: "center",
     height: "16.667vh",
-    backgroundImage: "url(/quasicrystals-color-reversed.svg)",
+    backgroundImage: "url(/quasicrystals-small.svg)",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
     backgroundSize: "cover",
@@ -104,10 +103,6 @@ export const main = composeStyles(
 
 export const footer = atoms({
   marginY: "xxl",
-})
-
-export const codeBlock = atoms({
-  fontSize: "body",
 })
 
 export const numberInput = composeStyles(
@@ -222,7 +217,7 @@ export const portfolioItemHeading = atoms({
 })
 
 export const portfolioImage = atoms({
-  marginTop: "m",
+  marginY: "l",
 })
 
 export const hrStyles = atoms({
