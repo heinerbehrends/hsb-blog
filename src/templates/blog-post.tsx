@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -7,6 +7,7 @@ import Seo from "../components/seo"
 import { BlogPostBySlugQuery } from "../../graphql-types"
 import { blogPostHeader, date, hrStyles, prevNextNav } from "../styles.css"
 import { ShareMenu } from "../components/share"
+import PrevNext from "../components/prevNext"
 
 type BlogPostTemplateProps = {
   data: BlogPostBySlugQuery
@@ -51,32 +52,7 @@ export default function BlogPostTemplate({
           <Bio />
         </footer>
       </article>
-      <nav className={prevNextNav}>
-        <ul
-          style={{
-            display: `flex`,
-            flexWrap: `wrap`,
-            justifyContent: `space-between`,
-            listStyle: `none`,
-            padding: 0,
-          }}
-        >
-          <li>
-            {previous && (
-              <Link to={`/frontmatter${previous?.fields?.slug!}`} rel="prev">
-                ← {previous?.frontmatter?.title}
-              </Link>
-            )}
-          </li>
-          <li>
-            {next && (
-              <Link to={`/frontmatter${next?.fields?.slug!}`} rel="next">
-                {next?.frontmatter?.title} →
-              </Link>
-            )}
-          </li>
-        </ul>
-      </nav>
+      <PrevNext {...previous} {...next} />
     </Layout>
   )
 }
