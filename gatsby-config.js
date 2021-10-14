@@ -3,9 +3,9 @@ module.exports = {
     title: `heinerbehrends.eu`,
     author: {
       name: `Heiner Behrends`,
-      summary: `hsbehrends.eu is home to my portfolio and blog. Here I present personal projects focused on interactivity and blog posts that document my learning progress. `,
+      summary: `heinerbehrends.eu is home to my portfolio and blog. Here I present personal projects focused on interactivity and blog posts that document my learning progress. `,
     },
-    description: `hsbehrends.eu is home to my portfolio and blog. `,
+    description: `heinerbehrends.eu is home to my portfolio and blog. `,
     siteUrl: `https://heinerbehrends.eu/`,
     social: {
       twitter: `@hsbehrends`,
