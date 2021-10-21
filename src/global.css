@@ -66,3 +66,6 @@ select option {
 span.punctuation {
   color: rgb(171, 178, 191) !important;
 }
+span.boolean {
+  color: #d19a66 !important;
+}
