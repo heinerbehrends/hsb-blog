@@ -15,6 +15,7 @@ export default function StackBlitz({
   useEffect(() => {
     sdk.embedProjectId("elementOrId", projectId, {
       theme: "dark",
+      clickToLoad: true,
       openFile: "index.tsx",
       view,
       height,
