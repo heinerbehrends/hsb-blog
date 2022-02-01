@@ -29,7 +29,7 @@
      showgrid="false"
      units="px"
      inkscape:zoom="0.94666667"
-     inkscape:cx="631.69014"
+     inkscape:cx="702.99296"
      inkscape:cy="376.05634"
      inkscape:window-width="1920"
      inkscape:window-height="1002"
@@ -356,11 +356,6 @@
          style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:19.05px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#444444;fill-opacity:1;stroke-width:0.264583"
          x="158.02609"
          y="126.46717"
-         id="tspan52801">Scroll Animation with </tspan><tspan
-         sodipodi:role="line"
-         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:19.05px;font-family:'Fira Sans';-inkscape-font-specification:'Fira Sans, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#444444;fill-opacity:1;stroke-width:0.264583"
-         x="158.02609"
-         y="150.27966"
-         id="tspan3880">React hooks</tspan></text>
+         id="tspan3880">The ramda mapAccum function</tspan></text>
   </g>
 </svg>
