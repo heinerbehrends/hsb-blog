@@ -5,24 +5,23 @@ description: "An introduction to ramda's mapAccum function with some examples on
 ogimage: https://www.heinerbehrends.eu/og-map-accum.png
 ---
 
-import CodeBlock from "../../src/components/codeBlock.tsx"
-import RandomWalk from "./randomWalk.tsx"
+import CodeBlock from "../../src/components/codeBlock.tsx";
+import RandomWalk from "./randomWalk.tsx";
 
 [Ramdajs](https://ramdajs.com/) is JavaScript library for functional programming.
 Ramda makes it easy to create _functional pipelines_, where the output of one function
-is _piped_ into the input of the next. Ramda allows you to write complex logic by
+is piped into the input of the next. Ramda allows you to write complex logic by
 combining simple functions.
+Ramda functions never mutate data so you won't have to think about shared mutable state and all
+functions are free from side-effects. They don't interact with any state outside of the function.
+This makes the code predictable and easier to understand.
 
 ## The missing child of map and reduce
 
-Ramda functions never mutate data so you won't have to think about shared mutable state and all
-functions are free from side-effects. They don't interact with any state outside of the function.
-This makes the code predictable and easier to understand. Most JavaScript developers are familiar
-with the build-in array methods map and reduce.
+JavaScript developers are familiar with the build-in array methods map and reduce and
 [Ramda's mapAccum function](https://ramdajs.com/docs/#mapAccum) is closely related to them.
 It is like reduce in that it outputs an accumulator, a value that is updated by each item
-in the array. And similar to map it outputs all the intermediate value of the accumulator
-in an array.
+in the array. and similar to map it outputs all the intermediate values.
 
 ## Code examples
 
@@ -68,7 +67,8 @@ function moveRandomly(point: [number, number]) {
   }
   function getRandomProperty(obj) {
     const keys = Object.keys(obj)
-    return obj[keys[Math.floor(Math.random() * keys.length)]]
+    const randomKey = keys[Math.floor(Math.random() * keys.length)]
+    return obj[randomKey]
   }
   return [
     getRandomProperty(directions)(point),

@@ -1,5 +1,5 @@
-import React, { useState } from "react"
-import { map, mapAccum } from "ramda"
+import React, { useState } from "react";
+import { map, mapAccum } from "ramda";
 
 export default function RandomWalk() {
   function moveRandomly(point: [number, number]) {
@@ -12,24 +12,25 @@ export default function RandomWalk() {
       sw: ([x, y]) => [x - 1, y - 1],
       w: ([x, y]) => [x - 1, y],
       nw: ([x, y]) => [x - 1, y + 1],
-    }
+    };
     function getRandomProperty(obj) {
-      const keys = Object.keys(obj)
-      return obj[keys[Math.floor(Math.random() * keys.length)]]
+      const keys = Object.keys(obj);
+      const randomKey = keys[Math.floor(Math.random() * keys.length)];
+      return obj[randomKey];
     }
     return [
       getRandomProperty(directions)(point),
       getRandomProperty(directions)(point),
-    ]
+    ];
   }
-  const movements = Array(3000).fill(null)
-  const startingPoint = [25, 25]
-  const [, randomWalk] = mapAccum(moveRandomly, startingPoint, movements)
+  const movements = Array(3000).fill(null);
+  const startingPoint = [25, 25];
+  const [, randomWalk] = mapAccum(moveRandomly, startingPoint, movements);
   const pathD = randomWalk.reduce(
     (acc, point) => `${acc} L ${point[0]} ${point[1]}`,
     `M ${startingPoint[0]} ${startingPoint[1]}`
-  )
-  const [state, setState] = useState(0)
+  );
+  const [state, setState] = useState(0);
   return (
     <>
       <svg
@@ -41,5 +42,5 @@ export default function RandomWalk() {
       </svg>
       <button onClick={() => setState(state + 1)}>Draw another</button>
     </>
-  )
+  );
 }
